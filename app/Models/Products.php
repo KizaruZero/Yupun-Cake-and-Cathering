@@ -20,7 +20,7 @@ class Products extends Model
 
     public function orderItems()
     {
-        return $this->hasMany(OrderItem::class);
+        return $this->hasMany(OrderItems::class);
     }
 
     public function category()

@@ -50,8 +50,7 @@ class ProductsResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('category_id')
-                    ->numeric()
+                Tables\Columns\TextColumn::make('category.name')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('price')
                     ->money()

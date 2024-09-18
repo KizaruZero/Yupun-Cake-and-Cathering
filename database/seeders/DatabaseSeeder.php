@@ -3,6 +3,12 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use Database\Seeders\OrderSeeder;
+use Database\Seeders\OrderItemSeeder;
+use Database\Seeders\ProductSeeder;
+use Database\Seeders\UserSeeder;
+use Database\Seeders\CategorySeeder;
+
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -22,10 +28,11 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('Ardya021'),
         ]);
         $this->call([
-            UsersSeeder::class,
-            ProductsSeeder::class,
-            OrdersSeeder::class,
-            OrderItemsSeeder::class,
+            UserSeeder::class,
+            CategorySeeder::class,
+            ProductSeeder::class,
+            OrderSeeder::class,
+            OrderItemSeeder::class,
         ]);
     }
 }

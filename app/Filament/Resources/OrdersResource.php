@@ -12,6 +12,10 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Tables\Columns\BadgeColumn;
+use Filament\Tables\Actions\Action;
+
+
 
 class OrdersResource extends Resource
 {
@@ -23,22 +27,6 @@ class OrdersResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('user_id')
-                    ->required()
-                    ->numeric(),
-                Forms\Components\TextInput::make('payment_method')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('status')
-                    ->required()
-                    ->maxLength(255)
-                    ->default('pending'),
-                Forms\Components\TextInput::make('total_price')
-                    ->required()
-                    ->numeric(),
-                Forms\Components\DateTimePicker::make('order_date')
-                    ->required(),
-                Forms\Components\DateTimePicker::make('delivery_date'),
             ]);
     }
 
@@ -51,8 +39,14 @@ class OrdersResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('payment_method')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('status')
-                    ->searchable(),
+                BadgeColumn::make('status')->state(function (Orders $record): string {
+                    return match ($record->status) { 'pending' => 'Pending', 'approved' => 'Approved', 'rejected' => 'Rejected', default => $record->status,
+                    };
+                })->colors([
+                            'primary' => 'Pending',
+                            'success' => 'Approved',
+                            'danger' => 'Rejected',
+                        ]),
                 Tables\Columns\TextColumn::make('total_price')
                     ->numeric()
                     ->sortable(),
@@ -75,7 +69,23 @@ class OrdersResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Action::make('approve')
+                    ->label('Approve')
+                    ->visible(fn(Orders $record) => $record->status === 'pending')
+                    ->action(function (Orders $record) {
+                        $record->update([
+                            'status' => 'approved',
+                            'approved_at' => now(),
+                        ]);
+
+                        return response()->json(['message' => 'Order approved and receipt sent to the user!']);
+                    }),
+
+
+                Action::make('reject')
+                    ->label('Reject')
+                    ->visible(fn(Orders $record) => $record->status === 'pending')
+                    ->action(fn(Orders $record) => $record->update(['status' => 'rejected'])),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

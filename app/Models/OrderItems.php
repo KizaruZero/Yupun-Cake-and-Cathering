@@ -13,7 +13,8 @@ class OrderItems extends Model
         'order_id',
         'product_id',
         'quantity',
-        'price'
+        'price',
+        'subtotal',
     ];
 
     public function order()
@@ -41,5 +42,5 @@ class OrderItems extends Model
         return $this->order->delivery_date;
     }
 
-    
+
 }
