@@ -1,20 +1,17 @@
 <script setup>
-import ApplicationLogo from '@/Components/ApplicationLogo.vue';
-import { Link } from '@inertiajs/vue3';
+import NavbarView from "@/frontend-components/NavbarView.vue";
+import FooterView from "@/frontend-components/FooterView.vue";
 </script>
 
 <template>
-    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
-        <div>
-            <Link href="/">
-                <ApplicationLogo class="w-20 h-20 fill-current text-gray-500" />
-            </Link>
-        </div>
+    <div class="flex flex-col min-h-screen">
+        <NavbarView class="flex-shrink-0" />
+        <main class="flex-grow">
+            <div class="container mx-auto p-6">
+                <slot />
+            </div>
+        </main>
 
-        <div
-            class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg"
-        >
-            <slot />
-        </div>
+        <FooterView class="flex-shrink-0" />
     </div>
 </template>
