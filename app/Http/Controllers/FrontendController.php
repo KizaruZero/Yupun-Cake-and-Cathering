@@ -25,6 +25,12 @@ class FrontendController extends Controller
         ]);
     }
 
+    public function cart()
+    {
+        return inertia('Frontend/CartView', [
+        ]);
+    }
+
     public function productDetail($id)
     {
         return inertia('Frontend/ProductDetailView', [

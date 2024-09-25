@@ -9,3 +9,7 @@ Route::get('/', [FrontendController::class, 'index'])->name('/');
 Route::get('/about', [FrontendController::class, 'about'])->name('about');
 Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
 Route::get('/product/{id}', [FrontendController::class, 'productDetail'])->name('product.detail');
+Route::get('/cart', [FrontendController::class, 'cart'])->name('cart');
+
+
+
