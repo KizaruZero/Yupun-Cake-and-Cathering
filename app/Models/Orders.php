@@ -27,4 +27,10 @@ class Orders extends Model
     {
         return $this->hasMany(OrderItems::class);
     }
+
+    public function scopePemasukan($query)
+    {
+        return $query->where('status', 'approved');
+    }
+
 }
