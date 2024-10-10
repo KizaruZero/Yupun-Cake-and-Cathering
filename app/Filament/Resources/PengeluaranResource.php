@@ -17,7 +17,11 @@ class PengeluaranResource extends Resource
 {
     protected static ?string $model = Pengeluaran::class;
 
+    protected static ?string $navigationGroup = 'Management';
+
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
+    protected static ?string $navigationName = 'Pengeluaran';
 
     public static function form(Form $form): Form
     {

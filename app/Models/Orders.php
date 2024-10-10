@@ -30,7 +30,7 @@ class Orders extends Model
 
     public function scopePemasukan($query)
     {
-        return $query->where('status', 'approved');
+        return $query->where('status', 'completed');
     }
 
 }

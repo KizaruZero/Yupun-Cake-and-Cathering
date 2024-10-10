@@ -32,7 +32,7 @@ class DashboardPanelProvider extends PanelProvider
                 'gray' => Color::Slate,
                 'info' => Color::Blue,
                 'primary' => Color::Indigo,
-                'success' => Color::Emerald,
+                'success' => Color::Green,
                 'warning' => Color::Orange,
             ])
             ->brandName('Yupun Cake and Cathering')
@@ -43,7 +43,7 @@ class DashboardPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
-                Widgets\AccountWidget::class,
+                // Widgets\AccountWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,

@@ -29,10 +29,9 @@ class OrderController extends Controller
         $order = Orders::create([
             'user_id' => Auth::id(), // Mengambil id user yang sedang login
             'payment_method' => $request->payment_method,
-            'status' => 'pending', // Misal order pertama kali di-pending
+            'status' => 'new', // Misal order pertama kali di-pending
             'total_price' => $total_price,
             'order_date' => now(),
-            'delivery_date' => now()->addDays(2), // Misal pengiriman 2 hari setelah order
         ]);
 
         // Masukkan tiap item ke dalam OrderItems

@@ -53,7 +53,7 @@ class PengeluaranChart extends LineChartWidget
         }
 
         // Query for pemasukan data using valid startDate and endDate
-        $data = Trend::query(Pengeluaran::class)
+        $data = Trend::query(Pengeluaran::query())
             ->between($startDate, $endDate)  // Use Carbon instances
             ->dateColumn('tanggal_pengeluaran') // Specify 'tanggal_transaksi' as the date column to be used
             ->perDay()
@@ -64,6 +64,7 @@ class PengeluaranChart extends LineChartWidget
                 [
                     'label' => 'Pengeluaran',
                     'data' => $data->map(fn(TrendValue $value) => $value->aggregate),
+                    'fill' => 'start',
                 ],
             ],
             'labels' => $data->map(fn(TrendValue $value) => Carbon::parse($value->date)->format('Y-m-d')), // Format dates for labels
