@@ -25,12 +25,12 @@ class OrderItemsResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('order_id')
-                    ->required()
-                    ->numeric(),
-                Forms\Components\TextInput::make('product_id')
-                    ->required()
-                    ->numeric(),
+                Forms\Components\Select::make('order_id')
+                    ->relationship('order.user', 'name') // Accessing user name through orders
+                    ->required(),
+                Forms\Components\Select::make('product.id')
+                    ->relationship('product', 'name')
+                    ->required(),
                 Forms\Components\TextInput::make('quantity')
                     ->required()
                     ->numeric(),
@@ -48,10 +48,14 @@ class OrderItemsResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('order_id')
+                Tables\Columns\TextColumn::make('order.user.name')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('product_id')
+                Tables\Columns\TextColumn::make('order.id')
+                    ->label('Order ID')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('product.name')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('quantity')

@@ -41,6 +41,11 @@ class OrderItems extends Model
     {
         return $this->order->delivery_date;
     }
+    public function getUserNameAttribute()
+    {
+        return $this->order->user->name; // Accessing user name via order relationship
+    }
+
 
 
 }

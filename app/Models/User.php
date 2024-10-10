@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
+use App\Models\Orders;
 
 class User extends Authenticatable implements FilamentUser
 {
@@ -50,5 +51,10 @@ class User extends Authenticatable implements FilamentUser
     public function canAccessPanel(Panel $panel): bool
     {
         return str_ends_with($this->role, 'admin');
+    }
+
+    public function order()
+    {
+        return $this->hasMany(Orders::class);
     }
 }
