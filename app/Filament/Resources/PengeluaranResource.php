@@ -19,6 +19,9 @@ class PengeluaranResource extends Resource
 
     protected static ?string $navigationGroup = 'Management';
 
+    protected static ?string $label = 'Expenses';
+
+
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     protected static ?string $navigationName = 'Pengeluaran';
