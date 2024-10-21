@@ -1,44 +1,44 @@
 <template>
-    <div class="bg-white shadow-md rounded-lg overflow-hidden">
+    <div
+        class="bg-white rounded-2xl overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105"
+    >
         <!-- Image Section -->
-        <img
-            :src="`/storage/${product.image}`"
-            :alt="product.name"
-            class="w-full h-48 object-cover"
-        />
+        <div class="relative overflow-hidden group">
+            <img
+                :src="`/storage/${product.image}`"
+                :alt="product.name"
+                class="w-full h-64 object-cover transform transition-transform duration-700 group-hover:scale-110"
+            />
+            <div
+                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            ></div>
+        </div>
 
         <!-- Product Info Section -->
-        <div class="p-4">
-            <h3 class="text-xl font-semibold mb-2">{{ product.name }}</h3>
-            <p class="text-gray-600 mb-4">
+        <div class="p-6">
+            <h3 class="text-2xl font-playfair font-bold text-gray-900 mb-2">
+                {{ product.name }}
+            </h3>
+            <p class="text-lg font-medium text-orange-500 mb-4">
                 Rp {{ formatCurrency(product.price) }}
             </p>
-
-            <!-- Link to Product Details -->
-            <Link
-                :href="`/product/${product.id}`"
-                class="bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded-lg"
-            >
-                Lihat Detail
-            </Link>
-
             <!-- Add to Cart Form -->
-            <form @submit.prevent="submitCart" class="mt-4">
-                <div class="flex items-center">
-                    <label for="quantity" class="mr-2 text-gray-700"
+            <form @submit.prevent="submitCart" class="space-y-4">
+                <div class="flex items-center space-x-4">
+                    <label for="quantity" class="text-gray-700 font-medium"
                         >Qty:</label
                     >
                     <input
                         type="number"
                         v-model.number="quantity"
                         min="1"
-                        class="w-16 text-center border rounded ml-4"
+                        class="w-20 text-center border-2 border-orange-200 rounded-lg focus:border-orange-500 focus:ring focus:ring-orange-200 focus:ring-opacity-50"
                         required
                     />
                 </div>
                 <button
                     type="submit"
-                    class="mt-4 bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg"
+                    class="w-full px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white rounded-full font-medium transform transition-all duration-300 hover:scale-105 hover:shadow-lg flex items-center justify-center"
                     :disabled="isLoading"
                 >
                     <span
@@ -52,7 +52,10 @@
             </form>
 
             <!-- Success Message -->
-            <p v-if="successMessage" class="mt-2 text-green-600">
+            <p
+                v-if="successMessage"
+                class="mt-4 text-green-600 font-medium text-center"
+            >
                 {{ successMessage }}
             </p>
         </div>
@@ -104,10 +107,20 @@ const formatCurrency = (value) => {
 
 <style scoped>
 .spinner-border {
-    border: 4px solid transparent;
-    border-top: 4px solid white;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid white;
     border-radius: 50%;
-    width: 16px;
-    height: 16px;
+    width: 24px;
+    height: 24px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 </style>

@@ -31,6 +31,12 @@ class FrontendController extends Controller
         ]);
     }
 
+    public function experiment()
+    {
+        return inertia('Frontend/ExperimentView', [
+        ]);
+    }
+
     public function productDetail($id)
     {
         return inertia('Frontend/ProductDetailView', [
