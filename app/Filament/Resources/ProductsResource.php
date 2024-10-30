@@ -37,7 +37,13 @@ class ProductsResource extends Resource
                 Forms\Components\TextInput::make('price')
                     ->required()
                     ->numeric()
-                    ->prefix('$'),
+                    ->minValue(0)
+                    ->validationMessages([
+                        'required' => 'The price field is required.',
+                        'numeric' => 'The price must be a valid number.',
+                        'min' => 'Testing gagal karena data tidak lengkap',
+                    ])
+                    ->prefix('IDR'),
                 Forms\Components\TextInput::make('stock')
                     ->required()
                     ->numeric(),

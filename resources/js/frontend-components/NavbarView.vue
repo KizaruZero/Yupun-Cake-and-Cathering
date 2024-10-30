@@ -26,7 +26,7 @@
                             <span
                                 class="text-2xl font-bold bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent"
                             >
-                                Tasty Catering
+                                Yupun Cake and Catering
                             </span>
                         </Link>
                     </div>
