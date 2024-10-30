@@ -1,41 +1,97 @@
 <?php
 
+namespace Tests\Feature;
+
 use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
-test('login screen can be rendered', function () {
-    $response = $this->get('/login');
+class AuthenticationTest extends TestCase
+{
+    use RefreshDatabase; // Ensures the database is reset for each test
 
-    $response->assertStatus(200);
-});
+    public function testLoginScreenCanBeRendered()
+    {
+        $response = $this->get('/login');
 
-test('users can authenticate using the login screen', function () {
-    $user = User::factory()->create();
+        $this->assertEquals(200, $response->status());
+    }
 
-    $response = $this->post('/login', [
-        'email' => $user->email,
-        'password' => 'password',
+    public function testUsersCanAuthenticateUsingTheLoginScreen()
+{
+    // Membuat pengguna dengan data yang benar
+    $user = User::factory()->create([
+        'name' => 'Test User',
+        'email' => 'kizaru@test.com',
+        'password' => bcrypt('password'), // Pastikan password sudah di-hash
     ]);
 
-    $this->assertAuthenticated();
-    $response->assertRedirect(route('/', absolute: false));
-});
+    // Data login
+    $loginData = [
+        'email' => 'adasd@test.com',
+        'password' => 'asubasdjnasjd',
+    ];
 
-test('users can not authenticate with invalid password', function () {
-    $user = User::factory()->create();
+    // Cek jika username atau password kosong
+    if (empty($loginData['email']) || empty($loginData['password'])) {
+        $this->fail("Testing gagal: Username atau password tidak boleh kosong.");
+        return;
+    }
 
-    $this->post('/login', [
-        'email' => $user->email,
-        'password' => 'wrong-password',
-    ]);
+    // Mencoba login
+    $response = $this->post('/login', $loginData);
 
-    $this->assertGuest();
-});
+    // Cek jika terjadi kesalahan autentikasi
+    if ($response->status() === 302) {
+        $this->fail("Testing gagal: Username atau password salah.");
+        return; // Keluarkan dari metode karena autentikasi gagal
+    }
 
-test('users can logout', function () {
-    $user = User::factory()->create();
+    $this->assertAuthenticatedAs($user); // Memastikan pengguna terautentikasi
+    $this->assertEquals(302, $response->status()); // Memastikan status redirect
+    $this->assertEquals(url('/'), $response->headers->get('Location')); // Memastikan lokasi pengalihan
 
-    $response = $this->actingAs($user)->post('/logout');
+    // Simulasi brute force attack dengan mencoba login lebih dari batas yang ditentukan
+    for ($i = 0; $i < 5; $i++) {
+        $response = $this->post('/login', [
+            'email' => 'kizaru@test.com',
+            'password' => 'wrong-password', // Password salah
+        ]);
+    }
 
-    $this->assertGuest();
-    $response->assertRedirect('/');
-});
+    // Cek jika terlalu banyak percobaan login
+    if ($response->status() === 429) {
+        $this->fail("Testing gagal: Terlalu banyak percobaan login.");
+        return;
+    }
+}
+
+
+    public function testUsersCannotAuthenticateWithInvalidPassword()
+    {
+        $user = User::factory()->create([
+            'password' => bcrypt('password'), // Ensure password is hashed
+        ]);
+
+        $this->post('/login', [
+            'email' => $user->email,
+            'password' => 'wrong-password',
+        ]);
+
+        $this->assertGuest(); // Asserts the user is a guest (not authenticated)
+    }
+
+    public function testUsersCanLogout()
+    {
+        $user = User::factory()->create([
+            'password' => bcrypt('password'), // Ensure password is hashed
+        ]);
+
+        $response = $this->actingAs($user)->post('/logout');
+
+        $this->assertGuest(); // Asserts the user is now a guest
+        $this->assertEquals(302, $response->status()); // Memastikan itu adalah pengalihan
+        $this->assertEquals(url('/'), $response->headers->get('Location')); // Memastikan lokasi pengalihan
+    
+    }
+}
