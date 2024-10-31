@@ -23,7 +23,7 @@ class RegistrationTest extends TestCase
     public function new_users_can_register()
     {
         $userData = [
-            'name' => 'Test User',
+            'name' => '',
             'email' => 'test@example.com',
             'password' => 'password',
             'password_confirmation' => 'password',
