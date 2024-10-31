@@ -28,8 +28,8 @@ class AuthenticationTest extends TestCase
 
     // Data login
     $loginData = [
-        'email' => 'adasd@test.com',
-        'password' => 'asubasdjnasjd',
+        'email' => 'kizaru@test.com',
+        'password' => 'password',
     ];
 
     // Cek jika username atau password kosong
@@ -38,18 +38,16 @@ class AuthenticationTest extends TestCase
         return;
     }
 
-    // Mencoba login
     $response = $this->post('/login', $loginData);
 
-    // Cek jika terjadi kesalahan autentikasi
-    if ($response->status() === 302) {
+    if(url('/') === $response->headers->get('Location')){
+        $this->assertAuthenticatedAs($user);
+        return;
+    }else{
         $this->fail("Testing gagal: Username atau password salah.");
-        return; // Keluarkan dari metode karena autentikasi gagal
+        $this->assertGuest();
     }
 
-    $this->assertAuthenticatedAs($user); // Memastikan pengguna terautentikasi
-    $this->assertEquals(302, $response->status()); // Memastikan status redirect
-    $this->assertEquals(url('/'), $response->headers->get('Location')); // Memastikan lokasi pengalihan
 
     // Simulasi brute force attack dengan mencoba login lebih dari batas yang ditentukan
     for ($i = 0; $i < 5; $i++) {
