@@ -21,7 +21,7 @@ class FrontendController extends Controller
 
     public function contact()
     {
-        return inertia('Frontend/ContactView', [
+        return inertia('Frontend/ContactUsView', [
         ]);
     }
 
@@ -30,6 +30,8 @@ class FrontendController extends Controller
         return inertia('Frontend/CartView', [
         ]);
     }
+
+
 
     public function experiment()
     {

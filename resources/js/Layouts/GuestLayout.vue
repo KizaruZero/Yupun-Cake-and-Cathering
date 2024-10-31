@@ -1,8 +1,10 @@
 <template>
-    <div class="flex flex-col min-h-screen bg-gray-100">
+    <div
+        class="flex flex-col min-h-screen bg-gradient-to-b from-orange-50 to-white"
+    >
         <NavbarView />
         <!-- Content Section -->
-        <div class="flex-grow p-6 bg-white">
+        <div class="flex-grow pt-16">
             <div class="mx-auto">
                 <slot />
             </div>

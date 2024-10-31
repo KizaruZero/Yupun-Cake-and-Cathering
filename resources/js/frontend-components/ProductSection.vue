@@ -2,18 +2,6 @@
 <template>
     <section class="py-16 bg-gradient-to-b from-orange-50 to-white">
         <div class="container mx-auto bg-gradient-to-b from-orange-50">
-            <!-- Decorative Elements -->
-            <div class="absolute inset-0 overflow-hidden">
-                <div
-                    class="absolute top-20 left-10 w-72 h-72 bg-orange-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"
-                ></div>
-                <div
-                    class="absolute top-40 right-10 w-72 h-72 bg-yellow-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"
-                ></div>
-                <div
-                    class="absolute -bottom-20 left-1/2 w-72 h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"
-                ></div>
-            </div>
             <h2 class="text-3xl font-bold text-center mb-12">
                 Produk Unggulan Kami
             </h2>

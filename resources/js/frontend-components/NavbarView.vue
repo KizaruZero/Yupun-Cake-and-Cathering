@@ -2,37 +2,20 @@
     <div class="fixed w-full top-0 z-50">
         <!-- Navbar Container -->
         <nav
-            class="bg-white/80 backdrop-blur-md shadow-lg border-b border-gray-100"
+            class="bg-white/50 backdrop-blur-lg border-gray-100"
             :class="{ 'shadow-lg': scrolled }"
         >
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex justify-between h-16">
+            <div class="mx-auto px-4 sm:px-6 lg:px-52">
+                <div class="flex h-16">
                     <!-- Logo and Brand -->
-                    <div class="flex items-center">
+                    <div class="flex justify-start items-center">
                         <Link href="/" class="flex items-center space-x-2">
                             <!-- Food icon -->
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="h-8 w-8 text-orange-500"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                            >
-                                <path
-                                    d="M15 11h.01M11 11h.01M7 11h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                                />
-                            </svg>
-                            <span
-                                class="text-2xl font-bold bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent"
-                            >
-                                Yupun Cake and Catering
-                            </span>
+                            <img src="@/assets/logo.png" alt="" width="50%" />
                         </Link>
                     </div>
-
                     <!-- Desktop Navigation -->
-                    <div class="hidden md:flex md:items-center md:space-x-8">
+                    <div class="mx-auto md:flex md:items-center md:space-x-8">
                         <Link
                             v-for="item in navigationItems"
                             :key="item.path"
@@ -46,11 +29,12 @@
                                 :class="{ 'scale-x-100': isActive(item.path) }"
                             ></span>
                         </Link>
-
+                    </div>
+                    <div class="flex items-center justify-end">
                         <!-- Order Now Button -->
                         <Link
                             href="/order"
-                            class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-orange-500 to-yellow-500 text-white rounded-full hover:from-orange-600 hover:to-yellow-600 transition-all duration-200 transform hover:scale-105"
+                            class="inline-flex items-center mr-8 px-4 py-2 bg-gradient-to-r from-orange-500 to-yellow-500 text-white rounded-full hover:from-orange-600 hover:to-yellow-600 transition-all duration-200 transform hover:scale-105"
                         >
                             <span>Order Now</span>
                             <svg

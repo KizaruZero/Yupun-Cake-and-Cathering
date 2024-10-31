@@ -4,7 +4,7 @@
             class="min-h-screen bg-gradient-to-b from-orange-50 to-white relative overflow-hidden"
         >
             <!-- Decorative Elements -->
-            <div class="absolute inset-0 overflow-hidden">
+            <!-- <div class="absolute inset-10 overflow-hidden">
                 <div
                     class="absolute top-20 left-10 w-72 h-72 bg-orange-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"
                 ></div>
@@ -14,7 +14,7 @@
                 <div
                     class="absolute -bottom-20 left-1/2 w-72 h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"
                 ></div>
-            </div>
+            </div> -->
 
             <!-- Main Content -->
             <div
@@ -27,15 +27,19 @@
                             <h2
                                 class="text-orange-500 font-medium tracking-wide uppercase text-sm"
                             >
-                                Welcome to Tasty Moments
+                                Welcome to Yupun Cake & Catering
                             </h2>
                             <h1
                                 class="text-4xl md:text-5xl lg:text-6xl font-playfair font-bold text-gray-900 leading-tight"
                             >
-                                Exquisite Catering
-                                <span class="block text-orange-500"
-                                    >&amp; Artisan Cakes</span
+                                <span class="block text-orange-500">
+                                    Lezatnya</span
                                 >
+                                Tak Terlupakan, Untuk Setiap Acara
+                                <span class="block text-orange-500">
+                                    Istimewa</span
+                                >
+                                Anda
                             </h1>
                             <p
                                 class="text-lg text-gray-600 max-w-2xl mx-auto lg:mx-0"
@@ -243,7 +247,6 @@
                 </div>
             </div>
         </div>
-        <ProductSection />
     </GuestLayout>
 </template>
 
