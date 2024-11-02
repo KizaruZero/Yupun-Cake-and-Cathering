@@ -4,7 +4,7 @@
     >
         <NavbarView />
         <!-- Content Section -->
-        <div class="flex-grow pt-16">
+        <div class="flex-grow">
             <div class="mx-auto">
                 <slot />
             </div>

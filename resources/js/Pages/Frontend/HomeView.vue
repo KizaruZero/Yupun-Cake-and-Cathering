@@ -5,6 +5,7 @@
         >
             <HeroSection />
             <TestimonialSection />
+            <ProductSection />
         </div>
     </GuestLayout>
 </template>

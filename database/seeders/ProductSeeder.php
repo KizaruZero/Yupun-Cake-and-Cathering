@@ -88,14 +88,7 @@ class ProductSeeder extends Seeder
                 'stock' => 90,
                 'image' => 'pisang.jpg'
             ],
-            [
-                'name' => 'Tempe Goreng',
-                'description' => 'Tempe Goreng products',
-                'category_id' => 4,
-                'price' => 4000,
-                'stock' => 100,
-                'image' => 'tempe.jpg'
-            ],
+        
         ];
 
         foreach ($products as $product) {

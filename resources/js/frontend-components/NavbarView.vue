@@ -1,5 +1,5 @@
 <template>
-    <div class="fixed w-full top-0 z-50">
+    <div class="sticky w-full top-0 z-50">
         <!-- Navbar Container -->
         <nav
             class="bg-white/50 backdrop-blur-lg border-gray-100"
@@ -47,6 +47,53 @@
                                     fill-rule="evenodd"
                                     d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
                                     clip-rule="evenodd"
+                                />
+                            </svg>
+                        </Link>
+                        <Link
+                            href="/cart"
+                            class="inline-flex items-center mr-8 px-4 py-2 bg-gradient-to-r from-orange-500 to-yellow-500 text-white rounded-full hover:from-orange-600 hover:to-yellow-600 transition-all duration-200 transform hover:scale-105"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="20"
+                                height="21"
+                                viewBox="0 0 20 21"
+                                fill="none"
+                            >
+                                <path
+                                    d="M0.750122 1.25003L2.83012 1.61003L3.79312 13.083C3.87012 14.02 4.65312 14.739 5.59312 14.736H16.5021C17.3991 14.738 18.1601 14.078 18.2871 13.19L19.2361 6.63203C19.3421 5.89903 18.8331 5.21903 18.1011 5.11303C18.0371 5.10403 3.16412 5.09903 3.16412 5.09903"
+                                    stroke="white"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                                <path
+                                    d="M12.1251 8.79492H14.8981"
+                                    stroke="white"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                                <path
+                                    fill-rule="evenodd"
+                                    clip-rule="evenodd"
+                                    d="M5.15447 18.2026C5.45547 18.2026 5.69847 18.4466 5.69847 18.7466C5.69847 19.0476 5.45547 19.2916 5.15447 19.2916C4.85347 19.2916 4.61047 19.0476 4.61047 18.7466C4.61047 18.4466 4.85347 18.2026 5.15447 18.2026Z"
+                                    fill="black"
+                                    stroke="white"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                                <path
+                                    fill-rule="evenodd"
+                                    clip-rule="evenodd"
+                                    d="M16.4347 18.2026C16.7357 18.2026 16.9797 18.4466 16.9797 18.7466C16.9797 19.0476 16.7357 19.2916 16.4347 19.2916C16.1337 19.2916 15.8907 19.0476 15.8907 18.7466C15.8907 18.4466 16.1337 18.2026 16.4347 18.2026Z"
+                                    fill="black"
+                                    stroke="white"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
                                 />
                             </svg>
                         </Link>
