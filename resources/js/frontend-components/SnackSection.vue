@@ -22,29 +22,30 @@
         <div class="px-44 bg-white">
             <div class="flex space-x-10 justify-center bg-b">
                 <!-- Left Section -->
-                <div class="w-1/2" data-aos="fade-right">
+                <div
+                    class="w-1/2 mx-auto flex justify-center p-8"
+                    data-aos="fade-right"
+                >
                     <img
-                        src="@/assets/yupun.png"
+                        src="@/assets/risol.jpg"
                         alt=""
-                        class="rounded-2xl transform transition-transform duration-700 hover:scale-105"
+                        class="transform w-3/4 transition-transform duration-700 hover:scale-105 rounded-full"
                     />
                 </div>
-
                 <!-- Right Section -->
                 <div class="w-1/2 px-20 py-12" data-aos="zoom-in-up">
                     <h1
                         class="text-2xl font-bold tracking-wider text-orange-500"
-                    >
-                        ABOUT US
-                    </h1>
+                    ></h1>
                     <div class="pt-4 text-5xl font-bold">
-                        Mewarnai Momen Anda dengan Rasa Istimewa
+                        Hidangan Lengkap untuk Kenikmatan Bersama
                     </div>
-                    <p class="text-base pt-8">
-                        Yupun Cake and Catering siap menjadi bagian dari setiap
-                        momen berharga Anda, dengan pelayanan yang ramah, rasa
-                        berkualitas, dan tampilan yang menarik. Mari wujudkan
-                        acara impian Anda bersama kami!
+                    <p class="text-base pt-4">
+                        Yupun Cake and Catering menyediakan beragam pilihan
+                        makanan berat yang cocok untuk berbagai acara. Mulai
+                        dari nasi kuning, ayam goreng/bakar, nasi uduk, hingga
+                        lauk pauk yang kaya rasa, kami menyajikan hidangan yang
+                        menggugah selera dan cocok untuk disantap bersama.
                     </p>
                     <!-- Navigation Arrows -->
                     <!-- Features -->

@@ -9,7 +9,7 @@
                 <slot />
             </div>
         </div>
-        <FooterView class="flex-shrink-0" />
+        <FooterView class="flex-shrink-0 mt-20" />
     </div>
 </template>
 <script setup>

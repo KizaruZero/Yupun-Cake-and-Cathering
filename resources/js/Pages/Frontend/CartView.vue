@@ -1,180 +1,345 @@
 <template>
     <GuestLayout>
-        <div class="container mx-auto px-4 py-8">
-            <h1 class="text-3xl font-bold mb-8 text-gray-800">
-                Keranjang Belanja Anda
-            </h1>
+        <div
+            class="min-h-screen bg-gradient-to-br from-orange-50 via-white to-orange-100"
+        >
             <div
-                v-if="!cart || Object.keys(cart).length === 0"
-                class="text-center py-8"
+                class="absolute inset-10 overflow-hidden"
+                style="pointer-events: none"
             >
-                <p class="text-xl text-gray-600">Keranjang Anda kosong</p>
-            </div>
-            <div v-else class="bg-white rounded-lg shadow-md p-6">
                 <div
-                    v-for="(item, id) in cart"
-                    :key="id"
-                    class="flex items-center justify-between border-b py-4"
+                    class="absolute top-20 left-10 w-72 h-72 bg-orange-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"
+                    style="pointer-events: none"
+                ></div>
+                <div
+                    class="absolute top-40 right-10 w-72 h-72 bg-yellow-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"
+                    style="pointer-events: none"
+                ></div>
+                <div
+                    class="absolute bottom-10 left-1/2 w-72 h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"
+                    style="pointer-events: none"
+                ></div>
+            </div>
+            <!-- Hero Section -->
+            <div
+                class="relative overflow-hidden bg-gradient-to-r from-orange-500 to-orange-600 h-48"
+            >
+                <div
+                    class="absolute inset-0 bg-white/10 backdrop-blur-sm"
+                ></div>
+                <div
+                    class="container mx-auto px-4 h-full flex items-center justify-between relative"
+                    v-motion
+                    :initial="{ opacity: 0, y: 50 }"
+                    :enter="{ opacity: 1, y: 0 }"
                 >
-                    <div class="flex items-center space-x-4">
-                        <img
-                            :src="`/storage/${item.image}`"
-                            :alt="item.name"
-                            class="w-16 h-16 object-cover rounded"
-                        />
-                        <div>
-                            <h2 class="text-lg font-semibold text-gray-800">
-                                {{ item.name }}
-                            </h2>
-                            <p class="text-gray-600">
-                                {{ formatCurrency(item.price) }}
-                            </p>
+                    <h1 class="text-4xl font-bold text-white tracking-tight">
+                        Your Catering Cart
+                    </h1>
+                    <div class="text-white/80">
+                        <p class="text-sm">Delivering Happiness</p>
+                        <p class="text-lg font-semibold">to Your Events</p>
+                    </div>
+                </div>
+
+                <!-- Decorative elements -->
+                <div class="absolute -bottom-6 left-0 right-0">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 1440 120"
+                    >
+                        <path
+                            fill="white"
+                            d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"
+                        ></path>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="container mx-auto px-4 py-8">
+                <!-- Empty State -->
+                <div
+                    v-if="!cart || Object.keys(cart).length === 0"
+                    class="text-center py-16"
+                    v-motion
+                    :initial="{ opacity: 0, scale: 0.9 }"
+                    :enter="{ opacity: 1, scale: 1 }"
+                >
+                    <div class="w-24 h-24 mx-auto mb-6 text-orange-400">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+                            />
+                        </svg>
+                    </div>
+                    <p class="text-2xl text-gray-600 font-medium mb-8">
+                        Your Cart is Empty
+                    </p>
+                    <Link
+                        href="/home"
+                        class="px-8 py-4 bg-gradient-to-r from-yellow-500 to-orange-500 text-white rounded-full font-medium transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-orange-50"
+                    >
+                        Start Ordering
+                    </Link>
+                </div>
+
+                <!-- Cart Items -->
+                <div v-else class="space-y-6">
+                    <!-- Cart Items Container -->
+                    <div
+                        class="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-6 border border-orange-100"
+                    >
+                        <div
+                            v-for="(item, id) in cart"
+                            :key="id"
+                            class="group relative flex items-center gap-6 py-6 first:pt-0 last:pb-0 border-b border-orange-100 last:border-0"
+                            v-motion
+                            :initial="{ opacity: 0, x: -20 }"
+                            :enter="{ opacity: 1, x: 0 }"
+                        >
+                            <!-- Image -->
+                            <div
+                                class="relative w-24 h-24 rounded-xl overflow-hidden group-hover:scale-105 transition-transform duration-300"
+                            >
+                                <img
+                                    :src="`/storage/${item.image}`"
+                                    :alt="item.name"
+                                    class="w-full h-full object-cover"
+                                />
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"
+                                ></div>
+                            </div>
+
+                            <!-- Details -->
+                            <div class="flex-1">
+                                <h2
+                                    class="text-xl font-semibold text-gray-800 group-hover:text-orange-500 transition-colors"
+                                >
+                                    {{ item.name }}
+                                </h2>
+                                <p class="text-orange-600 font-medium">
+                                    {{ formatCurrency(item.price) }}
+                                </p>
+                            </div>
+
+                            <!-- Quantity Controls -->
+                            <div
+                                class="flex items-center gap-3 bg-orange-50 rounded-full px-4 py-2"
+                            >
+                                <button
+                                    @click="
+                                        confirmUpdateCart(id, item.quantity - 1)
+                                    "
+                                    class="text-orange-500 hover:text-orange-700 transition-colors"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        class="h-5 w-5"
+                                        viewBox="0 0 20 20"
+                                        fill="currentColor"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                                            clip-rule="evenodd"
+                                        />
+                                    </svg>
+                                </button>
+                                <span
+                                    class="text-gray-800 font-semibold w-8 text-center"
+                                    >{{ item.quantity }}</span
+                                >
+                                <button
+                                    @click="
+                                        confirmUpdateCart(id, item.quantity + 1)
+                                    "
+                                    class="text-orange-500 hover:text-orange-700 transition-colors"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        class="h-5 w-5"
+                                        viewBox="0 0 20 20"
+                                        fill="currentColor"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                                            clip-rule="evenodd"
+                                        />
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <!-- Remove Button -->
+                            <button
+                                @click="confirmRemoveFromCart(id)"
+                                class="text-gray-400 hover:text-red-500 transition-colors"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="h-6 w-6"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                                    />
+                                </svg>
+                            </button>
                         </div>
                     </div>
-                    <div class="flex items-center space-x-2">
-                        <button
-                            @click="confirmUpdateCart(id, item.quantity - 1)"
-                            class="text-gray-500 hover:text-gray-700"
-                        >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="h-6 w-6"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M20 12H4"
-                                />
-                            </svg>
-                        </button>
-                        <span class="text-gray-800 font-semibold">{{
-                            item.quantity
-                        }}</span>
-                        <button
-                            @click="confirmUpdateCart(id, item.quantity + 1)"
-                            class="text-gray-500 hover:text-gray-700"
-                        >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="h-6 w-6"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                                />
-                            </svg>
-                        </button>
-                        <button
-                            @click="confirmRemoveFromCart(id)"
-                            class="ml-4 text-red-500 hover:text-red-700"
-                        >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="h-6 w-6"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                                />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                <div class="mt-4">
-                    <label
-                        for="payment_method"
-                        class="block text-sm font-medium text-gray-700"
-                        >Pilih Metode Pembayaran</label
-                    >
-                    <select
-                        v-model="payment_method"
-                        id="payment_method"
-                        class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                    >
-                        <option value="credit_card">Kartu Kredit</option>
-                        <option value="bank_transfer">Transfer Bank</option>
-                        <option value="cash_on_delivery">
-                            Bayar di Tempat
-                        </option>
-                    </select>
-                </div>
-                <!-- Date -->
-                <div class="mt-4">
-                    <label for="date" class="block" name="date">Date</label>
-                    <input
-                        v-model="requested_delivery_date"
-                        type="date"
-                        id="requested_delivery_date"
-                        class="mt-1 p-2 border rounded"
-                        :min="minDate"
-                        required
-                    />
-                </div>
-                <div class="payment_proof">
-                    <label
-                        for="payment_proof"
-                        class="block font-medium text-gray-700"
-                    >
-                        Bukti Pembayaran
-                    </label>
 
-                    <input
-                        type="file"
-                        id="payment_proof"
-                        class="mt-1 p-2 border rounded w-full"
-                        accept="image/*"
-                        @change="handleFileUpload"
-                        ref="fileInput"
-                        :class="{ 'border-red-500': errors.payment_proof }"
-                    />
+                    <!-- Order Details -->
+                    <div
+                        class="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-6 border border-orange-100"
+                    >
+                        <h3 class="text-xl font-semibold text-gray-800 mb-6">
+                            Order Details
+                        </h3>
 
-                    <div v-if="imagePreview" class="mt-2">
-                        <img
-                            :src="imagePreview"
-                            alt="Preview"
-                            class="h-32 object-cover rounded"
-                        />
-                        <button
-                            type="button"
-                            @click="removeImage"
-                            class="mt-1 text-red-600 text-sm"
-                        >
-                            Hapus Gambar
-                        </button>
+                        <!-- Payment Method -->
+                        <div class="space-y-4">
+                            <div>
+                                <label
+                                    for="payment_method"
+                                    class="block text-sm font-medium text-gray-700 mb-2"
+                                >
+                                    Payment Method
+                                </label>
+                                <select
+                                    v-model="payment_method"
+                                    id="payment_method"
+                                    class="w-full px-4 py-2.5 rounded-xl border border-orange-200 focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-300 bg-white/50 backdrop-blur-sm"
+                                >
+                                    <option value="credit_card">
+                                        Credit Card
+                                    </option>
+                                    <option value="bank_transfer">
+                                        Bank Transfer
+                                    </option>
+                                    <option value="cash_on_delivery">
+                                        Cash on Delivery
+                                    </option>
+                                </select>
+                            </div>
+
+                            <!-- Delivery Date -->
+                            <div>
+                                <label
+                                    for="requested_delivery_date"
+                                    class="block text-sm font-medium text-gray-700 mb-2"
+                                >
+                                    Delivery Date
+                                </label>
+                                <input
+                                    v-model="requested_delivery_date"
+                                    type="date"
+                                    id="requested_delivery_date"
+                                    :min="minDate"
+                                    required
+                                    class="w-full px-4 py-2.5 rounded-xl border border-orange-200 focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-300 bg-white/50 backdrop-blur-sm"
+                                />
+                            </div>
+
+                            <!-- Payment Proof -->
+                            <div>
+                                <label
+                                    for="payment_proof"
+                                    class="block text-sm font-medium text-gray-700 mb-2"
+                                >
+                                    Payment Proof
+                                </label>
+                                <div class="relative">
+                                    <input
+                                        type="file"
+                                        id="payment_proof"
+                                        accept="image/*"
+                                        @change="handleFileUpload"
+                                        ref="fileInput"
+                                        class="hidden"
+                                        :class="{
+                                            'border-red-500':
+                                                errors.payment_proof,
+                                        }"
+                                    />
+                                    <button
+                                        @click="$refs.fileInput.click()"
+                                        class="w-full px-4 py-2.5 rounded-xl border-2 border-dashed border-orange-200 hover:border-orange-400 focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-300 bg-white/50 backdrop-blur-sm text-gray-500 hover:text-orange-600"
+                                    >
+                                        Click to upload payment proof
+                                    </button>
+                                </div>
+
+                                <!-- Image Preview -->
+                                <div v-if="imagePreview" class="mt-4">
+                                    <div class="relative w-32 h-32">
+                                        <img
+                                            :src="imagePreview"
+                                            alt="Preview"
+                                            class="w-full h-full object-cover rounded-xl"
+                                        />
+                                        <button
+                                            @click="removeImage"
+                                            class="absolute -top-2 -right-2 bg-red-500 text-white p-1 rounded-full hover:bg-red-600 transition-colors"
+                                        >
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                class="h-4 w-4"
+                                                viewBox="0 0 20 20"
+                                                fill="currentColor"
+                                            >
+                                                <path
+                                                    fill-rule="evenodd"
+                                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                                    clip-rule="evenodd"
+                                                />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <p
+                                    v-if="errors.payment_proof"
+                                    class="mt-2 text-sm text-red-500"
+                                >
+                                    {{ errors.payment_proof }}
+                                </p>
+                            </div>
+                        </div>
                     </div>
 
-                    <p
-                        v-if="errors.payment_proof"
-                        class="mt-1 text-red-500 text-sm"
+                    <!-- Total and Checkout -->
+                    <div
+                        class="bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl shadow-xl p-6 text-white"
                     >
-                        {{ errors.payment_proof }}
-                    </p>
-                </div>
-
-                <div class="mt-8 flex justify-between items-center">
-                    <p class="text-xl font-semibold text-gray-800">
-                        Total: {{ formatCurrency(totalPrice) }}
-                    </p>
-                    <button
-                        @click="submitOrder"
-                        class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-300"
-                    >
-                        Lanjutkan ke Pembayaran
-                    </button>
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <p class="text-white/80">Total Amount</p>
+                                <p class="text-3xl font-bold">
+                                    {{ formatCurrency(totalPrice) }}
+                                </p>
+                            </div>
+                            <button
+                                @click="submitOrder"
+                                class="bg-white text-orange-500 px-8 py-3 rounded-xl font-semibold hover:scale-105 hover:shadow-lg hover:shadow-white/20 transform transition-all duration-300"
+                            >
+                                Proceed to Payment
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -186,6 +351,7 @@ import { ref, onMounted, computed } from "vue";
 import axios from "axios";
 import Swal from "sweetalert2";
 import GuestLayout from "@/Layouts/GuestLayout.vue";
+import { Link } from "@inertiajs/vue3";
 
 const cart = ref(null);
 const errors = ref({});

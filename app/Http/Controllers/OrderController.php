@@ -6,11 +6,17 @@ use App\Models\Orders;
 use App\Models\OrderItems;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Inertia\Inertia;
 
 class OrderController extends Controller
 {
     public function store(Request $request)
     {
+        $user = Auth::user();
+        if (!$user) {
+            return inertia('Auth/Login', [
+            ]);
+        }
         // Validasi input dari form
         $request->validate([
             'payment_method' => 'required|string',
@@ -30,7 +36,7 @@ class OrderController extends Controller
 
         // Buat order baru
         $order = Orders::create([
-            'user_id' => Auth::id(), // Mengambil id user yang sedang login
+            'user_id' => $user->id, // Mengambil id user yang sedang login
             'payment_method' => $request->payment_method,
             'status' => 'new', // Misal order pertama kali di-pending
             'total_price' => $total_price,

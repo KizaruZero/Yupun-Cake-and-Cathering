@@ -21,24 +21,28 @@
                     <div class="space-y-4">
                         <h2
                             class="text-orange-500 font-medium tracking-wide uppercase text-sm"
-                        >
-                            Welcome to Yupun Cake & Catering
-                        </h2>
+                        ></h2>
                         <h1
                             class="text-4xl md:text-5xl lg:text-6xl font-playfair font-bold text-gray-900 leading-tight"
                         >
-                            <span class="block text-orange-500"> Lezatnya</span>
-                            Tak Terlupakan, Untuk Setiap Acara
-                            <span class="block text-orange-500"> Istimewa</span>
-                            Anda
+                            Pilih,<span class="block text-orange-500"
+                                >Pesan,</span
+                            >
+                            Dan Nikmati Setiap
+                            <span class="block text-orange-500"
+                                >Rasa Istimewa</span
+                            >
                         </h1>
                         <p
                             class="text-lg text-gray-600 max-w-2xl mx-auto lg:mx-0"
                         >
-                            Creating unforgettable culinary experiences for your
-                            special moments. From elegant catering to
-                            custom-crafted cakes, we bring your celebrations to
-                            life.
+                            Dari hidangan pembuka hingga penutup yang manis,
+                            Yupun Cake and Catering menghadirkan beragam pilihan
+                            lezat yang cocok untuk semua acara. Setiap menu kami
+                            dibuat dengan bahan berkualitas dan sentuhan khusus
+                            agar setiap gigitan terasa istimewa. Temukan
+                            hidangan favorit Anda dan buat setiap momen semakin
+                            berkesan!
                         </p>
                     </div>
 
@@ -157,9 +161,9 @@
                 <div class="relative">
                     <div class="relative rounded-2xl overflow-hidden group">
                         <img
-                            src="@/assets/hero.png"
+                            src="@/assets/sehat.png"
                             alt="Delicious catering spread"
-                            class="w-full h-full object-cover rounded-2xl transform transition-transform duration-700 group-hover:scale-105"
+                            class="object-cover w-3/4 rounded-2xl transform transition-transform duration-700 group-hover:scale-105"
                         />
                         <!-- Floating Elements -->
                         <div

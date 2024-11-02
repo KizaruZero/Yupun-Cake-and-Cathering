@@ -14,6 +14,16 @@ class ProductController extends Controller
         ]);
     }
 
+    public function getCategoryProducts($id)
+    {
+        return response()->json([
+            'data' => Products::where('category_id', $id, )
+                ->where('stock', 'Tersedia')
+                ->with('category')
+                ->get()
+        ]);
+    }
+
     public function getProductDetail($id)
     {
         return response()->json([

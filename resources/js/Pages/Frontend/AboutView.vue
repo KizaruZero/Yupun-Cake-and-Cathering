@@ -54,7 +54,7 @@
                     <div class="relative">
                         <div class="relative rounded-2xl overflow-hidden">
                             <img
-                                src="/api/placeholder/600/400"
+                                src="@/assets/telor.png"
                                 alt="Delicious cake"
                                 class="w-full h-full object-cover rounded-2xl"
                             />
@@ -68,6 +68,7 @@
 
 <script setup>
 import GuestLayout from "@/Layouts/GuestLayout.vue";
+import AboutUsSection from "@/frontend-components/AboutUsSection.vue";
 </script>
 
 <style>

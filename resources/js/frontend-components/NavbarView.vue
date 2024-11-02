@@ -368,8 +368,7 @@ import { Link, usePage } from "@inertiajs/vue3";
 // Navigation items
 const navigationItems = [
     { name: "Home", path: "/" },
-    { name: "Menu", path: "/experiment" },
-    { name: "Services", path: "/services" },
+    { name: "Menu", path: "/menu" },
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
 ];

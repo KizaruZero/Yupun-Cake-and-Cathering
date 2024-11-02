@@ -22,11 +22,14 @@
         <div class="px-44 bg-white">
             <div class="flex space-x-10 justify-center bg-b">
                 <!-- Left Section -->
-                <div class="w-1/2" data-aos="fade-right">
+                <div
+                    class="w-1/2 mx-auto flex justify-center p-8"
+                    data-aos="fade-right"
+                >
                     <img
-                        src="@/assets/yupun.png"
+                        src="@/assets/cake.png"
                         alt=""
-                        class="rounded-2xl transform transition-transform duration-700 hover:scale-105"
+                        class="transform w-full transition-transform duration-700 hover:scale-105 rounded-full"
                     />
                 </div>
 
@@ -34,17 +37,19 @@
                 <div class="w-1/2 px-20 py-12" data-aos="zoom-in-up">
                     <h1
                         class="text-2xl font-bold tracking-wider text-orange-500"
-                    >
-                        ABOUT US
-                    </h1>
+                    ></h1>
                     <div class="pt-4 text-5xl font-bold">
-                        Mewarnai Momen Anda dengan Rasa Istimewa
+                        Kue Spesial untuk Setiap Momen
                     </div>
-                    <p class="text-base pt-8">
-                        Yupun Cake and Catering siap menjadi bagian dari setiap
-                        momen berharga Anda, dengan pelayanan yang ramah, rasa
-                        berkualitas, dan tampilan yang menarik. Mari wujudkan
-                        acara impian Anda bersama kami!
+                    <p class="text-base pt-4">
+                        Setiap potongan kue dari Yupun Cake and Catering
+                        dirancang untuk menghadirkan kelezatan dalam setiap
+                        gigitan. Dari rainbow cake yang berwarna-warni, tiramisu
+                        yang lembut, hingga custom cake yang bisa dibuat sesuai
+                        tema acara Anda—kami hadir untuk memberikan kue yang tak
+                        hanya indah dilihat tapi juga menggugah selera. Mari
+                        buat setiap perayaan menjadi manis dengan kue-kue
+                        pilihan kami!
                     </p>
                     <!-- Navigation Arrows -->
                     <!-- Features -->

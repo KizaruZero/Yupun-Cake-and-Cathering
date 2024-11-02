@@ -25,7 +25,7 @@ class CategorySeeder extends Seeder
                 'description' => 'Snack products',
             ],
             [
-                'name' => 'Makanan Berat',
+                'name' => 'Catering',
                 'description' => 'Makanan Berat products',
             ],
             [

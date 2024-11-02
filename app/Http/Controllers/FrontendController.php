@@ -33,9 +33,9 @@ class FrontendController extends Controller
 
 
 
-    public function experiment()
+    public function menu()
     {
-        return inertia('Frontend/ExperimentView', [
+        return inertia('Frontend/MenuView', [
         ]);
     }
 
