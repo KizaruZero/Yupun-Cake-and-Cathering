@@ -19,7 +19,7 @@ class OrderItems extends Model
 
     public function order()
     {
-        return $this->belongsTo(Orders::class);
+        return $this->belongsTo(Orders::class, 'order_id');
     }
 
     public function product()
@@ -45,6 +45,9 @@ class OrderItems extends Model
     {
         return $this->order->user->name; // Accessing user name via order relationship
     }
+
+
+
 
 
 

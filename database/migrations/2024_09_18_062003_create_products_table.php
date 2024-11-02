@@ -18,6 +18,7 @@ return new class extends Migration {
             $table->decimal('price', 10, 2);
             $table->enum('stock', ['Tersedia', 'Tidak Tersedia'])->default('Tersedia'); // Add 'role' column
             $table->string('image')->nullable();
+            $table->integer('total_sold')->default(0);
             $table->timestamps();
         });
     }

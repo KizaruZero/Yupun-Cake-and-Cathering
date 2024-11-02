@@ -114,7 +114,9 @@ class OrdersResource extends Resource
                         ->label('Complete')
                         ->icon('heroicon-o-check')
                         ->visible(fn(Orders $record) => $record->status === 'shipped')
-                        ->action(fn(Orders $record) => $record->update(['status' => 'completed'])),
+                        ->action(fn(Orders $record) => $record->update(
+                            ['status' => 'completed'],
+                        )),
                 ])
             ])
             ->bulkActions([

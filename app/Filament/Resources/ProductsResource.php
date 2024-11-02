@@ -69,6 +69,8 @@ class ProductsResource extends Resource
                 Tables\Columns\TextColumn::make('stock')
                     ->sortable(),
                 Tables\Columns\ImageColumn::make('image'),
+                Tables\Columns\TextColumn::make('total_sold')
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

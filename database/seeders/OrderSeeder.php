@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Orders;
+use App\Models\Products;
+
 use Faker\Factory as Faker;
 
 
@@ -113,6 +115,7 @@ class OrderSeeder extends Seeder
 
         foreach ($orders as $order) {
             Orders::create($order);
+            Products::recalculateTotalSold();
         }
     }
 }
