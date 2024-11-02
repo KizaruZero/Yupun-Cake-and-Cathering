@@ -6,6 +6,9 @@
             <HeroSection />
             <AboutUsSection />
             <div class="mt-0 pt-0"><ProductSection /></div>
+            <div class="mt-4">
+                <WhyUsSection />
+            </div>
         </div>
     </GuestLayout>
 </template>
@@ -17,6 +20,7 @@ import ProductSection from "@/frontend-components/ProductSection.vue";
 import { Link } from "@inertiajs/vue3";
 import HeroSection from "@/frontend-components/HeroSection.vue";
 import AboutUsSection from "@/frontend-components/AboutUsSection.vue";
+import WhyUsSection from "@/frontend-components/WhyUsSection.vue";
 const isHovered = ref(false);
 </script>
 
