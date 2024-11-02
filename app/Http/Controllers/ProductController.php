@@ -10,7 +10,7 @@ class ProductController extends Controller
     public function getProducts()
     {
         return response()->json([
-            'data' => Products::all()
+            'data' => Products::where('stock', 'Tersedia')->with('category')->get()
         ]);
     }
 
@@ -37,7 +37,7 @@ class ProductController extends Controller
 
         // Jika produk sudah ada di cart, tambahkan quantity
         if (isset($cart[$id])) {
-            $cart[$id]['quantity']++;
+            $cart[$id]['quantity'] += $quantity;
         } else {
             // Jika produk belum ada di cart, tambahkan produk ke cart
             $cart[$id] = [

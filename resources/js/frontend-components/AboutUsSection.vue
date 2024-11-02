@@ -1,6 +1,6 @@
 <template>
     <div
-        class="min-h-screen bg-gradient-to-b from-orange-50 to-white relative overflow-hidden"
+        class="bg-gradient-to-b from-orange-50 to-white relative overflow-hidden"
     >
         <div
             class="absolute inset-10 overflow-hidden"
@@ -19,10 +19,10 @@
                 style="pointer-events: none"
             ></div>
         </div>
-        <div class="px-44 py-20 bg-white">
-            <div class="flex space-x-10 justify-center">
+        <div class="px-44 bg-white">
+            <div class="flex space-x-10 justify-center bg-b">
                 <!-- Left Section -->
-                <div class="w-1/2">
+                <div class="w-1/2" data-aos="fade-right">
                     <img
                         src="@/assets/yupun.png"
                         alt=""
@@ -31,7 +31,7 @@
                 </div>
 
                 <!-- Right Section -->
-                <div class="w-1/2 px-20 py-12">
+                <div class="w-1/2 px-20 py-12" data-aos="zoom-in-up">
                     <h1
                         class="text-2xl font-bold tracking-wider text-orange-500"
                     >
@@ -143,9 +143,14 @@
         </div>
     </div>
 </template>
-x``
 <script setup>
 import { Link } from "@inertiajs/vue3";
+import { onMounted } from "vue";
+import AOS from "aos";
+
+// onMounted(() => {
+//     AOS.init();
+// });
 </script>
 
 <style scoped>

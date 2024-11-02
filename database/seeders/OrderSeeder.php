@@ -23,6 +23,8 @@ class OrderSeeder extends Seeder
                 'status' => 'completed',
                 'total_price' => 100000,
                 'order_date' => '2024-09-18',
+                'requested_delivery_date' => '2024-09-20',
+                'payment_proof' => 'payment_proofs/1.jpg',
             ],
             [
                 'user_id' => 2,
@@ -30,6 +32,8 @@ class OrderSeeder extends Seeder
                 'status' => 'completed',
                 'total_price' => 200000,
                 'order_date' => '2024-09-18',
+                'requested_delivery_date' => '2024-09-20',
+                'payment_proof' => 'payment_proofs/1.jpg',
             ],
             [
                 'user_id' => 3,
@@ -37,6 +41,8 @@ class OrderSeeder extends Seeder
                 'status' => 'completed',
                 'total_price' => 300000,
                 'order_date' => '2024-09-18',
+                'requested_delivery_date' => '2024-09-20',
+                'payment_proof' => 'payment_proofs/1.jpg',
             ],
             [
                 'user_id' => 4,
@@ -44,6 +50,8 @@ class OrderSeeder extends Seeder
                 'status' => 'completed',
                 'total_price' => 400000,
                 'order_date' => '2024-09-18',
+                'requested_delivery_date' => '2024-09-20',
+                'payment_proof' => 'payment_proofs/1.jpg',
             ],
             [
                 'user_id' => 4,
@@ -51,6 +59,8 @@ class OrderSeeder extends Seeder
                 'status' => 'completed',
                 'total_price' => 400000,
                 'order_date' => '2024-09-18',
+                'requested_delivery_date' => '2024-09-20',
+                'payment_proof' => 'payment_proofs/1.jpg',
             ],
             [
                 'user_id' => 4,
@@ -58,6 +68,8 @@ class OrderSeeder extends Seeder
                 'status' => 'processing',
                 'total_price' => 400000,
                 'order_date' => '2024-09-18',
+                'requested_delivery_date' => '2024-09-20',
+                'payment_proof' => 'payment_proofs/1.jpg',
             ],
             [
                 'user_id' => 4,
@@ -65,6 +77,8 @@ class OrderSeeder extends Seeder
                 'status' => 'processing',
                 'total_price' => 400000,
                 'order_date' => '2024-09-18',
+                'requested_delivery_date' => '2024-09-20',
+                'payment_proof' => 'payment_proofs/1.jpg',
             ],
             [
                 'user_id' => 4,
@@ -72,6 +86,8 @@ class OrderSeeder extends Seeder
                 'status' => 'processing',
                 'total_price' => 400000,
                 'order_date' => '2024-09-18',
+                'requested_delivery_date' => '2024-09-20',
+                'payment_proof' => 'payment_proofs/1.jpg',
             ],
             [
                 'user_id' => 4,
@@ -79,6 +95,8 @@ class OrderSeeder extends Seeder
                 'status' => 'processing',
                 'total_price' => 400000,
                 'order_date' => '2024-09-18',
+                'requested_delivery_date' => '2024-09-20',
+                'payment_proof' => 'payment_proofs/1.jpg',
             ],
             [
                 'user_id' => 4,
@@ -86,6 +104,8 @@ class OrderSeeder extends Seeder
                 'status' => 'processing',
                 'total_price' => 400000,
                 'order_date' => '2024-09-18',
+                'requested_delivery_date' => '2024-09-20',
+                'payment_proof' => 'payment_proofs/1.jpg',
             ],
 
             // Add more orders as needed

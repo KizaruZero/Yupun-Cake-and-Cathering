@@ -1,7 +1,5 @@
 <template>
-    <div
-        class="max-h-screen bg-gradient-to-b from-orange-50 to-white relative overflow-hidden"
-    >
+    <div class="min-h-screen bg-gradient-to-b from-orange-50 to-white">
         <!-- Decorative Elements -->
         <div class="absolute inset-10 overflow-hidden">
             <div
@@ -16,7 +14,7 @@
         </div>
 
         <!-- Main Content -->
-        <div class="relative container pb-16 px-52">
+        <div class="relative container pb-16 mx-52">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <!-- Left Column - Text Content -->
                 <div class="text-center lg:text-left space-y-8">

@@ -44,9 +44,12 @@ class ProductsResource extends Resource
                         'min' => 'Testing gagal karena data tidak lengkap',
                     ])
                     ->prefix('IDR'),
-                Forms\Components\TextInput::make('stock')
-                    ->required()
-                    ->numeric(),
+                Forms\Components\Select::make('stock')
+                    ->options([
+                        'Tersedia' => 'Tersedia',
+                        'Tidak Tersedia' => 'Tidak Tersedia',
+                    ])
+                    ->required(),
                 Forms\Components\FileUpload::make('image')
                     ->image(),
             ]);
@@ -64,7 +67,6 @@ class ProductsResource extends Resource
                     ->money()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('stock')
-                    ->numeric()
                     ->sortable(),
                 Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\TextColumn::make('created_at')

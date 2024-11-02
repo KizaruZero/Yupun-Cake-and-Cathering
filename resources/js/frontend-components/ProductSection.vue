@@ -19,14 +19,20 @@
             ></div>
         </div>
         <div class="container mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12">
-                Produk Unggulan Kami
+            <h2
+                class="text-4xl font-extrabold text-center mb-12 hover:animate-bounce"
+            >
+                <span class="text-orange-500">Menu</span> That
+                <span class="text-yellow-500">Always</span> Make You Fall In
+                <span class="text-red-500">Love</span>
             </h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <ProductCard
                     v-for="product in products"
                     :key="product.id"
                     :product="product"
+                    class="hover:scale-105 transition-all delay-75"
+                    data-aos="fade-up"
                 />
             </div>
         </div>
@@ -37,6 +43,7 @@
 import { ref, onMounted } from "vue";
 import ProductCard from "../frontend-components/ProductCard.vue";
 import axios from "axios";
+import AOS from "aos";
 
 const products = ref([]);
 
@@ -52,5 +59,6 @@ const fetchProducts = async () => {
 
 onMounted(() => {
     fetchProducts();
+    AOS.init();
 });
 </script>

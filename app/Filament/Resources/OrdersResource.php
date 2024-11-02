@@ -66,9 +66,13 @@ class OrdersResource extends Resource
                 Tables\Columns\TextColumn::make('order_date')
                     ->dateTime()
                     ->sortable(),
+                Tables\Columns\TextColumn::make('requested_delivery_date')
+                    ->dateTime()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('delivery_date')
                     ->dateTime()
                     ->sortable(),
+                Tables\Columns\ImageColumn::make('payment_proof'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

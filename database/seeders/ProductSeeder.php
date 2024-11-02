@@ -21,7 +21,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Brownies products',
                 'category_id' => 1,
                 'price' => 10000,
-                'stock' => 10,
+                'stock' => 'Tersedia',
                 'image' => 'brownies.jpg'
             ],
             [
@@ -29,7 +29,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Donat products',
                 'category_id' => 1,
                 'price' => 5000,
-                'stock' => 20,
+                'stock' => 'Tersedia',
                 'image' => 'donat.jpg'
             ],
             [
@@ -37,7 +37,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Roti products',
                 'category_id' => 1,
                 'price' => 3000,
-                'stock' => 30,
+                'stock' => 'Tersedia',
                 'image' => 'roti.jpg'
             ],
             [
@@ -45,7 +45,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Keripik products',
                 'category_id' => 2,
                 'price' => 5000,
-                'stock' => 40,
+                'stock' => 'Tersedia',
                 'image' => 'keripik.jpg'
             ],
             [
@@ -53,7 +53,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Kerupuk products',
                 'category_id' => 2,
                 'price' => 2000,
-                'stock' => 50,
+                'stock' => 'Tersedia',
                 'image' => 'kerupuk.jpg'
             ],
             [
@@ -61,7 +61,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Nasi Goreng products',
                 'category_id' => 3,
                 'price' => 15000,
-                'stock' => 60,
+                'stock' => 'Tersedia',
                 'image' => 'nasigoreng.jpg'
             ],
             [
@@ -69,7 +69,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Mie Goreng products',
                 'category_id' => 3,
                 'price' => 12000,
-                'stock' => 70,
+                'stock' => 'Tersedia',
                 'image' => 'mie.jpg'
             ],
             [
@@ -77,7 +77,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Tahu Goreng products',
                 'category_id' => 3,
                 'price' => 5000,
-                'stock' => 80,
+                'stock' => 'Tersedia',
                 'image' => 'tahu.jpg'
             ],
             [
@@ -85,10 +85,10 @@ class ProductSeeder extends Seeder
                 'description' => 'Pisang Goreng products',
                 'category_id' => 4,
                 'price' => 3000,
-                'stock' => 90,
+                'stock' => 'Tersedia',
                 'image' => 'pisang.jpg'
             ],
-        
+
         ];
 
         foreach ($products as $product) {

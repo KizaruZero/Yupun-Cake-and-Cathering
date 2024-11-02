@@ -15,6 +15,8 @@ class Orders extends Model
         'status',
         'total_price',
         'order_date',
+        'payment_proof',
+        'requested_delivery_date',
         'delivery_date'
     ];
 

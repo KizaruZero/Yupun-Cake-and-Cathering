@@ -14,11 +14,14 @@ class OrderController extends Controller
         // Validasi input dari form
         $request->validate([
             'payment_method' => 'required|string',
+            'requested_delivery_date' => 'required|date|after_or_equal:today',
+            'payment_proof' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'cart_items' => 'required|array', // Mengandung array item keranjang
             'cart_items.*.product_id' => 'required|exists:products,id',
             'cart_items.*.quantity' => 'required|integer|min:1',
             'cart_items.*.price' => 'required|numeric|min:0',
         ]);
+
 
         // Hitung total harga
         $total_price = collect($request->cart_items)->sum(function ($item) {
@@ -32,6 +35,8 @@ class OrderController extends Controller
             'status' => 'new', // Misal order pertama kali di-pending
             'total_price' => $total_price,
             'order_date' => now(),
+            'requested_delivery_date' => $request->requested_delivery_date,
+            'payment_proof' => $request->file('payment_proof')->store('payment_proofs', 'public'),
         ]);
 
         // Masukkan tiap item ke dalam OrderItems

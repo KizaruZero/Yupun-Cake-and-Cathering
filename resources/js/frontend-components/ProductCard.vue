@@ -1,14 +1,18 @@
 <template>
     <article
-        class="flex flex-col justifyu-center items-center px-8 rounded-lg max-w-96 bg-gradient-to-b from-white to-orange-100 p-8 rounded-3xl"
+        class="flex flex-col justifyu-center items-center px-8 rounded-t-full max-w-96 bg-gradient-to-b from-transparent from-30% to-orange-300 p-8"
     >
-        <header class="flex flex-col self-stretch px-6 pt-7 pb-4 rounded-full">
-            <img
-                loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/f260debb414c5cbbf33266d0114373a3d32ac6a2ccd9ff06182522f6193ec23b?apiKey=566c88d13f564de8a79a5f1407a51555&"
-                class="object-contain aspect-[0.96]"
-                alt="Kebab dish"
-            />
+        <header class="flex flex-col self-stretch px- pb-4 rounded-full">
+            <div
+                class="p-8 bg-gradient-to-b from-orange-300 from-10% to-white/0 to-60% rounded-full"
+            >
+                <img
+                    loading="lazy"
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/f260debb414c5cbbf33266d0114373a3d32ac6a2ccd9ff06182522f6193ec23b?apiKey=566c88d13f564de8a79a5f1407a51555&"
+                    class="object-contain aspect-[0.96]"
+                    alt="Kebab dish"
+                />
+            </div>
         </header>
 
         <h2
@@ -44,6 +48,7 @@
                     class="spinner-border animate-spin mr-2"
                 ></span>
                 {{ isLoading ? "Menambahkan..." : "Add to Cart" }}
+                <!-- success message -->
             </button>
         </form>
     </article>
@@ -75,6 +80,7 @@ const submitCart = async () => {
         });
 
         successMessage.value = "Produk berhasil ditambahkan ke keranjang!";
+        console.log("Product added to cart Quantity:", quantity.value);
         quantity.value = 1; // Reset quantity after success
     } catch (error) {
         console.error("Error adding product to cart:", error);

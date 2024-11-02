@@ -19,6 +19,7 @@
         "vue": "^3.4.0"
     },
     "dependencies": {
+        "aos": "^2.3.4",
         "sweetalert2": "^11.14.1",
         "vue-router": "^4.0.13"
     }

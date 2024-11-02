@@ -4,8 +4,8 @@
             class="bg-gradient-to-b from-orange-50 to-white relative overflow-hidden"
         >
             <HeroSection />
-            <TestimonialSection />
-            <ProductSection />
+            <AboutUsSection />
+            <div class="mt-0 pt-0"><ProductSection /></div>
         </div>
     </GuestLayout>
 </template>
@@ -16,7 +16,7 @@ import GuestLayout from "@/Layouts/GuestLayout.vue";
 import ProductSection from "@/frontend-components/ProductSection.vue";
 import { Link } from "@inertiajs/vue3";
 import HeroSection from "@/frontend-components/HeroSection.vue";
-import TestimonialSection from "@/frontend-components/TestimonialSection.vue";
+import AboutUsSection from "@/frontend-components/AboutUsSection.vue";
 const isHovered = ref(false);
 </script>
 
