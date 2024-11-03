@@ -4,7 +4,7 @@
             class="bg-gradient-to-b from-orange-50 to-white relative overflow-hidden"
         >
             <HeroSection />
-            <div class="px-44 mx-auto bg-white pb-8">
+            <div class="px-44 mx-auto bg-white pb-12">
                 <h2
                     class="text-5xl font-extrabold text-center mb-4 hover:animate-bounce"
                 >
@@ -30,13 +30,13 @@
                     />
                 </div>
             </div>
-            <div class="mt-6">
+            <div class="mt-">
                 <AboutUsSection />
             </div>
-            <div class="mt-6">
+            <div class="pt-6 bg-white">
                 <WhyUsSection />
             </div>
-            <div class="mt-8">
+            <div class="pt-8 bg-white">
                 <AutentikSection />
             </div>
         </div>
