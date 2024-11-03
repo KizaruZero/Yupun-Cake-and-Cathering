@@ -22,29 +22,20 @@
         <div class="px-44 bg-white">
             <div class="flex space-x-10 justify-center bg-b">
                 <!-- Left Section -->
-                <div class="w-1/2 flex justify-center" data-aos="fade-right">
-                    <img
-                        src="@/assets/yupun.png"
-                        alt=""
-                        class="rounded-2xl w-full transform transition-transform duration-700 hover:scale-105"
-                    />
-                </div>
 
                 <!-- Right Section -->
                 <div class="w-1/2 px-20 py-12" data-aos="zoom-in-up">
                     <h1
                         class="text-2xl font-bold tracking-wider text-orange-500"
-                    >
-                        ABOUT US
-                    </h1>
+                    ></h1>
                     <div class="pt-4 text-5xl font-bold">
-                        Mewarnai Momen Anda dengan Rasa Istimewa
+                        Dapur Sederhana, Rasa Istimewa
                     </div>
-                    <p class="text-base pt-8">
-                        Yupun Cake and Catering siap menjadi bagian dari setiap
-                        momen berharga Anda, dengan pelayanan yang ramah, rasa
-                        berkualitas, dan tampilan yang menarik. Mari wujudkan
-                        acara impian Anda bersama kami!
+                    <p class="text-base pt-4">
+                        Dari dapur kami yang sederhana, kami meracik setiap
+                        hidangan secara handmade, memberikan perhatian pada
+                        setiap bahan yang dipilih hingga rasa terbaik tersaji di
+                        meja Anda
                     </p>
                     <!-- Navigation Arrows -->
                     <!-- Features -->
@@ -124,20 +115,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mt-12 flex gap-x-4">
-                        <Link
-                            href="/menu"
-                            class="px-8 py-4 border-2 bg-gradient-to-r from-orange-500 to-yellow-500 text-white rounded-full font-medium transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-orange-50"
-                        >
-                            View Menu
-                        </Link>
-                        <Link
-                            href="/contact"
-                            class="px-8 py-4 border-2 bg-gradient-to-r from-yellow-500 to-orange-500 text-white rounded-full font-medium transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-orange-50"
-                        >
-                            Contact Us
-                        </Link>
-                    </div>
+                </div>
+
+                <div class="w-1/2 flex justify-center" data-aos="fade-right">
+                    <img
+                        src="@/assets/autentik.png"
+                        alt=""
+                        class="rounded-2xl w-3/4 transform transition-transform duration-700 hover:scale-105"
+                    />
                 </div>
             </div>
         </div>

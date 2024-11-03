@@ -30,9 +30,14 @@
                     />
                 </div>
             </div>
-            <AboutUsSection />
-            <div class="mt-4">
+            <div class="mt-6">
+                <AboutUsSection />
+            </div>
+            <div class="mt-6">
                 <WhyUsSection />
+            </div>
+            <div class="mt-8">
+                <AutentikSection />
             </div>
         </div>
     </GuestLayout>
@@ -47,6 +52,7 @@ import { Link } from "@inertiajs/vue3";
 import HeroSection from "@/frontend-components/HeroSection.vue";
 import AboutUsSection from "@/frontend-components/AboutUsSection.vue";
 import WhyUsSection from "@/frontend-components/WhyUsSection.vue";
+import AutentikSection from "@/frontend-components/AutentikSection.vue";
 import axios from "axios";
 
 const popularProduct = ref([]);
