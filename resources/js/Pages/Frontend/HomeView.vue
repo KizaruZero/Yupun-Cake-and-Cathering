@@ -4,8 +4,33 @@
             class="bg-gradient-to-b from-orange-50 to-white relative overflow-hidden"
         >
             <HeroSection />
+            <div class="px-44 mx-auto bg-white pb-8">
+                <h2
+                    class="text-5xl font-extrabold text-center mb-4 hover:animate-bounce"
+                >
+                    Today
+                    <span class="text-yellow-500">Special</span>
+                    Offers
+                </h2>
+                <div class="w-1/2 mx-auto">
+                    <p class="text-xl text-center mb-12">
+                        Inilah sajian istimewa yang menjadi favorit tim Yupun
+                        Cake and Catering! Setiap hidangan dipilih dengan cermat
+                        untuk menghadirkan pengalaman rasa yang paling berkesan.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 bg-">
+                    <ProductCard
+                        v-for="product in popularProduct"
+                        :key="product.id"
+                        :product="product"
+                        class="hover:scale-105 transition-all delay-75"
+                        data-aos="fade-up"
+                    />
+                </div>
+            </div>
             <AboutUsSection />
-            <div class="mt-0 pt-0"><ProductSection /></div>
             <div class="mt-4">
                 <WhyUsSection />
             </div>
@@ -17,11 +42,25 @@
 import { ref } from "vue";
 import GuestLayout from "@/Layouts/GuestLayout.vue";
 import ProductSection from "@/frontend-components/ProductSection.vue";
+import ProductCard from "@/frontend-components/ProductCard.vue";
 import { Link } from "@inertiajs/vue3";
 import HeroSection from "@/frontend-components/HeroSection.vue";
 import AboutUsSection from "@/frontend-components/AboutUsSection.vue";
 import WhyUsSection from "@/frontend-components/WhyUsSection.vue";
-const isHovered = ref(false);
+import axios from "axios";
+
+const popularProduct = ref([]);
+
+const fetchPopularProduct = async () => {
+    try {
+        const response = await axios.get("/api/products/popular");
+        popularProduct.value = response.data.data;
+    } catch (error) {
+        console.error("Error fetching popular products:", error);
+    }
+};
+
+fetchPopularProduct();
 </script>
 
 <style>

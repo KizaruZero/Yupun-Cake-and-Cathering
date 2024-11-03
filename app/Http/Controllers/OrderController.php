@@ -64,4 +64,20 @@ class OrderController extends Controller
             'order_id' => $order->id,
         ], 201);
     }
+
+    public function getOrderHistory()
+    {
+        $user = Auth::user();
+        if (!$user) {
+            return inertia('Auth/Login', [
+            ]);
+        }
+
+        $orders = Orders::where('user_id', $user->id)
+            ->orderBy('order_date', 'desc')
+            ->with('orderItems.product')
+            ->get();
+
+        return response()->json($orders);
+    }
 }

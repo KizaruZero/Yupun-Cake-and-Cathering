@@ -1,15 +1,15 @@
 <template>
     <article
-        class="flex flex-col justifyu-center items-center px-8 rounded-t-full max-w-96 bg-gradient-to-b from-transparent from-30% to-orange-300 p-8"
+        class="flex flex-col justifyu-center items-center px-8 rounded-t-full max-w-96 bg-gradient-to-b from-transparent from-30% to-orange-200 p-8"
     >
         <header class="flex flex-col self-stretch px- pb-4 rounded-full">
             <div
-                class="p-8 bg-gradient-to-b from-orange-300 from-10% to-white/0 to-60% rounded-full"
+                class="p-8 bg-gradient-to-b from-orange-200 from-10% to-white/0 to-60% rounded-full"
             >
                 <img
                     loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/f260debb414c5cbbf33266d0114373a3d32ac6a2ccd9ff06182522f6193ec23b?apiKey=566c88d13f564de8a79a5f1407a51555&"
-                    class="object-contain aspect-[0.96]"
+                    :src="`/storage/${product.image}`"
+                    class="object-contain aspect-[0.96] w-full rounded-full"
                     alt="Kebab dish"
                 />
             </div>

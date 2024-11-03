@@ -342,6 +342,7 @@
                     </div>
                 </div>
             </div>
+            <OrderHistory />
         </div>
     </GuestLayout>
 </template>
@@ -352,6 +353,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import GuestLayout from "@/Layouts/GuestLayout.vue";
 import { Link } from "@inertiajs/vue3";
+import OrderHistory from "@/frontend-components/OrderHistory.vue";
 
 const cart = ref(null);
 const errors = ref({});

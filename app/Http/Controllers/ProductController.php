@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Products;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class ProductController extends Controller
 {
@@ -98,5 +99,12 @@ class ProductController extends Controller
         }
 
         return redirect()->back()->with('success', 'Jumlah produk berhasil diperbarui!');
+    }
+
+    public function getPopularProducts()
+    {
+        return response()->json([
+            'data' => Products::orderBy('total_sold', 'desc')->limit(4)->get()
+        ]);
     }
 }

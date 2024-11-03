@@ -115,7 +115,7 @@ class OrderSeeder extends Seeder
 
         foreach ($orders as $order) {
             Orders::create($order);
-            Products::recalculateTotalSold();
+            Products::recalculateAllTotalSold();
         }
     }
 }

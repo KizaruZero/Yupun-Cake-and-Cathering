@@ -4,6 +4,7 @@ use App\Http\Controllers\OrderController;
 
 
 Route::get('/api/products', [ProductController::class, 'getProducts']);
+Route::get('/api/products/popular', [ProductController::class, 'getPopularProducts']);
 Route::get('/api/category/{id}', [ProductController::class, 'getCategoryProducts']);
 Route::get('/api/product/{id}', [ProductController::class, 'getProductDetail']);
 Route::get('/api/cart', [ProductController::class, 'viewCart']);
@@ -14,6 +15,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('/api/cart/update/{id}', [ProductController::class, 'updateCart'])->name('cart.update');
     Route::post('/api/cart/remove/{id}', [ProductController::class, 'removeFromCart'])->name('cart.remove');
     Route::post('/api/orders', [OrderController::class, 'store'])->name('orders.store');
+    Route::get('/api/order/history', [OrderController::class, 'getOrderHistory'])->name('orders.history');
 });
 
 

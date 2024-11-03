@@ -28,10 +28,6 @@ class CategorySeeder extends Seeder
                 'name' => 'Catering',
                 'description' => 'Makanan Berat products',
             ],
-            [
-                'name' => 'Gorengan',
-                'description' => 'Gorengan products',
-            ],
         ];
 
         foreach ($categories as $category) {
