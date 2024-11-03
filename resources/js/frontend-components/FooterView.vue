@@ -1,91 +1,119 @@
-<!-- Footer.vue -->
 <template>
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- About Section -->
-            <div>
-                <h4 class="text-lg font-bold mb-4">Cake & Catering</h4>
-                <p class="text-gray-400">
-                    Kami menyediakan berbagai kue dan layanan katering untuk
-                    acara spesial Anda.
-                </p>
-            </div>
+    <footer
+        class="backdrop-blur-lg border-t border-gray-100 py-8 mt-8 shadow-md bg-orange-300"
+    >
+        <div class="mx-auto px-4 sm:px-6 lg:px-52">
+            <!-- Top Section with Links -->
+            <div class="flex flex-col md:flex-row md:justify-between">
+                <!-- Logo and Description -->
+                <div class="mb-8 md:mb-0">
+                    <Link href="/" class="flex items-center space-x-2 mb-4">
+                        <img src="@/assets/logo.png" alt="Logo" class="w-12" />
+                    </Link>
+                    <p class="text-black">
+                        Menyediakan layanan catering berkualitas dengan cita
+                        rasa tinggi untuk setiap acara istimewa Anda. Nikmati
+                        makanan lezat bersama kami.
+                    </p>
+                </div>
 
-            <!-- Navigation Links -->
-            <div>
-                <h4 class="text-lg font-bold mb-4">Navigasi</h4>
-                <ul>
-                    <li class="mb-2">
-                        <Link href="/" class="hover:text-yellow-500">Home</Link>
-                    </li>
-                    <li class="mb-2">
-                        <Link href="/about" class="hover:text-yellow-500"
-                            >Tentang Kami</Link
-                        >
-                    </li>
-                    <li class="mb-2">
-                        <Link href="/products" class="hover:text-yellow-500"
-                            >Produk</Link
-                        >
-                    </li>
-                    <li class="mb-2">
-                        <Link href="/contact" class="hover:text-yellow-500"
-                            >Hubungi Kami</Link
-                        >
-                    </li>
-                </ul>
-            </div>
+                <!-- Navigation Links -->
+                <div class="grid grid-cols-2 gap-8 md:grid-cols-3">
+                    <!-- Menu Column -->
+                    <div>
+                        <h3 class="text-sm font-semibold text-black mb-4">
+                            Menu
+                        </h3>
+                        <ul class="space-y-2">
+                            <li>
+                                <Link
+                                    href="/about"
+                                    class="text-black hover:text-orange-600 transition duration-200"
+                                    >Tentang Kami</Link
+                                >
+                            </li>
+                            <li>
+                                <Link
+                                    href="/menu"
+                                    class="text-black hover:text-orange-600 transition duration-200"
+                                    >Menu</Link
+                                >
+                            </li>
+                            <li>
+                                <Link
+                                    href="/catering"
+                                    class="text-black hover:text-orange-600 transition duration-200"
+                                    >Layanan Catering</Link
+                                >
+                            </li>
+                        </ul>
+                    </div>
 
-            <!-- Contact & Social Media -->
-            <div>
-                <h4 class="text-lg font-bold mb-4">Hubungi Kami</h4>
-                <p class="text-gray-400 mb-2">
-                    Alamat: Jl. Kenangan No. 123, Kota Bahagia
-                </p>
-                <p class="text-gray-400 mb-4">Telepon: (021) 123-4567</p>
+                    <!-- Information Column -->
+                    <div>
+                        <h3 class="text-sm font-semibold text-black mb-4">
+                            Informasi
+                        </h3>
+                        <ul class="space-y-2">
+                            <li>
+                                <Link
+                                    href="/faq"
+                                    class="text-black hover:text-orange-600 transition duration-200"
+                                    >FAQ</Link
+                                >
+                            </li>
+                            <li>
+                                <Link
+                                    href="/privacy"
+                                    class="text-black hover:text-orange-600 transition duration-200"
+                                    >Kebijakan Privasi</Link
+                                >
+                            </li>
+                            <li>
+                                <Link
+                                    href="/terms"
+                                    class="text-black hover:text-orange-600 transition duration-200"
+                                    >Syarat & Ketentuan</Link
+                                >
+                            </li>
+                        </ul>
+                    </div>
 
-                <!-- Social Media Links -->
-                <div class="flex space-x-4">
-                    <a
-                        href="https://facebook.com"
-                        target="_blank"
-                        class="hover:text-yellow-500"
-                    >
-                        <svg
-                            class="w-6 h-6 fill-current text-gray-400 hover:text-yellow-500"
-                            viewBox="0 0 24 24"
-                        >
-                            <path
-                                d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.437 9.877v-6.987H7.898v-2.89h2.539v-2.197c0-2.507 1.492-3.892 3.78-3.892 1.096 0 2.238.195 2.238.195v2.465h-1.26c-1.242 0-1.63.773-1.63 1.564v1.865h2.773l-.443 2.89h-2.33v6.987C18.343 21.128 22 16.991 22 12z"
-                            />
-                        </svg>
-                    </a>
-                    <a
-                        href="https://instagram.com"
-                        target="_blank"
-                        class="hover:text-yellow-500"
-                    >
-                        <svg
-                            class="w-6 h-6 fill-current text-gray-400 hover:text-yellow-500"
-                            viewBox="0 0 24 24"
-                        >
-                            <path
-                                d="M16.001 4H8.001C6.895 4 6.001 4.894 6.001 6v8c0 1.106.894 2 2 2h8c1.106 0 2-.894 2-2V6c0-1.106-.894-2-2-2zm-4 10c-1.658 0-3-1.342-3-3s1.342-3 3-3 3 1.342 3 3-1.342 3-3 3zm4.5-6.5c-.276 0-.5-.224-.5-.5s.224-.5.5-.5.5.224.5.5-.224.5-.5.5zM18 8.999h-1.5v.007h1.5v-.007z"
-                            />
-                        </svg>
-                    </a>
+                    <!-- Contact Column -->
+                    <div>
+                        <h3 class="text-sm font-semibold text-black mb-4">
+                            Kontak
+                        </h3>
+                        <ul class="space-y-2">
+                            <li class="text-black">
+                                Email: info@cateringco.com
+                            </li>
+                            <li class="text-black">
+                                Telepon: +62 812-3456-7890
+                            </li>
+                            <li class="text-black">
+                                Alamat: Jl. Pangan Sejahtera No.123
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Copyright -->
-        <div class="text-center text-gray-400 mt-8">
-            <p>&copy; 2024 Cake & Catering. Semua Hak Cipta Dilindungi.</p>
+            <!-- Bottom Section -->
+            <div
+                class="mt-8 border-t border-gray-200 pt-4 text-center text-black text-sm"
+            >
+                <p>&copy; 2024 Catering Co. Semua Hak Dilindungi.</p>
+            </div>
         </div>
     </footer>
 </template>
 
 <script setup>
+// Import router link
 import { Link } from "@inertiajs/vue3";
-// No logic required here for the footer
 </script>
+
+<style scoped>
+/* Optional additional styling */
+</style>
