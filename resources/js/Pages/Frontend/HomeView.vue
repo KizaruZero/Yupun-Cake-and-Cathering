@@ -30,13 +30,13 @@
                     />
                 </div>
             </div>
-            <div class="mt-4">
+            <div class="mt-6">
                 <AboutUsSection />
             </div>
-            <div class="mt-4">
+            <div class="mt-6">
                 <WhyUsSection />
             </div>
-            <div class="mt-4">
+            <div class="mt-8">
                 <AutentikSection />
             </div>
         </div>
