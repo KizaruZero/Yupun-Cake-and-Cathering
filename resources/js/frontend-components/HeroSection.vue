@@ -14,7 +14,7 @@
         </div>
 
         <!-- Main Content -->
-        <div class="relative container pb-16 mx-52">
+        <div class="relative container pb-16 px-52">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <!-- Left Column - Text Content -->
                 <div class="text-center lg:text-left space-y-8">
