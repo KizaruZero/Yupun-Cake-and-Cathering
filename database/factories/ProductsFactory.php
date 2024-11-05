@@ -24,7 +24,7 @@ class ProductsFactory extends Factory
             'description' => $this->faker->text,
             'category_id' => 1,
             'price' => $this->faker->randomFloat(2, 1, 100),
-            'stock' => $this->faker->randomNumber(2),
+            'stock' => 'Tersedia',
             'image' => UploadedFile::fake()->image('product.jpg'), // Simulate file upload
         ];
     }
