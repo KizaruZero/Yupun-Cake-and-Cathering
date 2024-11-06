@@ -54,6 +54,7 @@ import AboutUsSection from "@/frontend-components/AboutUsSection.vue";
 import WhyUsSection from "@/frontend-components/WhyUsSection.vue";
 import AutentikSection from "@/frontend-components/AutentikSection.vue";
 import axios from "axios";
+import AOS from "aos";
 
 const popularProduct = ref([]);
 
@@ -65,6 +66,8 @@ const fetchPopularProduct = async () => {
         console.error("Error fetching popular products:", error);
     }
 };
+
+AOS.init();
 
 fetchPopularProduct();
 </script>
