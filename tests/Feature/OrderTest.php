@@ -35,7 +35,7 @@ class OrderTest extends TestCase
     }
 
     /** @test */
-    public function user_can_create_order_successfully()
+    public function UserBisaMelakukanOrder()
     {
         Storage::fake('public');
 

@@ -34,15 +34,15 @@ class ProductTest extends TestCase
     }
 
     /** @test */
-    public function it_can_create_a_product()
+    public function BisaMembuatProduct()
     {
         $category = Category::factory()->create();
         $productData = Products::make([
-            'name' => '',
+            'name' => 'Test Product',
             'description' => 'Test Description',
             'category_id' => $category->id,
             'price' => 99.99,
-            'stock' => 10,
+            'stock' => 'tersedia',
             'image' => UploadedFile::fake()->image('test.jpg'),
 
         ]);
@@ -84,7 +84,7 @@ class ProductTest extends TestCase
 
 
     /** @test */
-    public function it_can_update_a_product()
+    public function BisaUpdateProduct()
     {
         $category = Category::factory()->create();
 
@@ -94,7 +94,7 @@ class ProductTest extends TestCase
             'description' => 'Test Description',
             'category_id' => $category->id,
             'price' => 99.99,
-            'stock' => 10,
+            'stock' => 'tersedia',
             'image' => UploadedFile::fake()->image('test.jpg'),
         ]);
 
@@ -121,7 +121,7 @@ class ProductTest extends TestCase
     }
 
     /** @test */
-    public function it_can_delete_a_product()
+    public function BisaDeleteProduct()
     {
         // Create a category first
         $category = Category::factory()->create();
@@ -143,7 +143,7 @@ class ProductTest extends TestCase
     }
 
     /** @test */
-    public function it_can_list_products()
+    public function BisaLihatProduct()
     {
         $category = Category::factory()->create();
         $products = Products::factory(3)->create([
