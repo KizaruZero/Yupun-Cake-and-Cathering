@@ -20,10 +20,10 @@ class RegistrationTest extends TestCase
     }
 
     /** @test */
-    public function new_users_can_register()
+    public function UserBaruBisaRegister()
     {
         $userData = [
-            'name' => '',
+            'name' => 'ardya',
             'email' => 'test@example.com',
             'password' => 'password',
             'password_confirmation' => 'password',
