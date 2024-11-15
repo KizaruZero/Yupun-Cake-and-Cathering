@@ -84,7 +84,7 @@
                         Your Cart is Empty
                     </p>
                     <Link
-                        href="/home"
+                        href="/menu"
                         class="px-8 py-4 bg-gradient-to-r from-yellow-500 to-orange-500 text-white rounded-full font-medium transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-orange-50"
                     >
                         Start Ordering

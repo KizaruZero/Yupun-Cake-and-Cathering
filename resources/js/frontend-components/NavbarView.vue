@@ -33,7 +33,7 @@
                     <div class="flex items-center justify-end">
                         <!-- Order Now Button -->
                         <Link
-                            href="/order"
+                            href="/menu"
                             class="inline-flex items-center mr-8 px-4 py-2 bg-gradient-to-r from-orange-500 to-yellow-500 text-white rounded-full hover:from-orange-600 hover:to-yellow-600 transition-all duration-200 transform hover:scale-105"
                         >
                             <span>Order Now</span>
@@ -191,7 +191,7 @@
                                             Your Profile
                                         </Link>
                                         <Link
-                                            href="/orders"
+                                            href="/cart"
                                             class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-500"
                                             @click="closeUserMenu"
                                         >
