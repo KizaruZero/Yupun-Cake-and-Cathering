@@ -37,11 +37,15 @@ class ProductController extends Controller
         // Ambil produk berdasarkan ID
         $product = Products::find($id);
         $quantity = $request->quantity;
+        $user = auth()->user();
+
+
 
         // Jika produk tidak ditemukan
         if (!$product) {
             return redirect()->back()->with('error', 'Produk tidak ditemukan!');
         }
+
 
         // Ambil cart dari session (jika belum ada, buat array kosong)
         $cart = session()->get('cart', []);
