@@ -121,6 +121,7 @@ const submit = () => {
                             </Link>
 
                             <Link
+                                href="/"
                                 class="px-8 py-3 bg-gradient-to-r from-yellow-500 to-orange-500 text-white rounded-full font-medium transform transition-all duration-300 hover:scale-105 hover:bg-orange-50"
                                 :class="{ 'opacity-25': form.processing }"
                                 :disabled="form.processing"
