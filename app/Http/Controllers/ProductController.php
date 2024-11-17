@@ -15,6 +15,7 @@ class ProductController extends Controller
         ]);
     }
 
+
     public function getCategoryProducts($id)
     {
         return response()->json([
