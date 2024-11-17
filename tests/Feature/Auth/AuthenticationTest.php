@@ -29,8 +29,8 @@ class AuthenticationTest extends TestCase
 
         // Data login
         $loginData = [
-            'email' => '',
-            'password' => 'password',
+            'email' => 'kizaru@test.com',
+            'password' => '',
         ];
 
         // Cek jika username atau password kosong
@@ -59,7 +59,7 @@ class AuthenticationTest extends TestCase
         // Membuat pengguna dengan data yang benar
         $user = User::factory()->create([
             'name' => 'Test User',
-            'role' => 'admin',
+            'role' => 'user',
             'email' => 'kizaru2@test.com',
             'password' => bcrypt('password'), // Pastikan password sudah di-hash
         ]);

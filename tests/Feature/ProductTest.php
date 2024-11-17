@@ -38,7 +38,7 @@ class ProductTest extends TestCase
     {
         $category = Category::factory()->create();
         $productData = Products::make([
-            'name' => 'Test Product',
+            'name' => '',
             'description' => 'Test Description',
             'category_id' => $category->id,
             'price' => 99.99,
@@ -100,7 +100,7 @@ class ProductTest extends TestCase
 
         // Check if the product exists before proceeding
         $nonExistentProductId = 999; // tinmggal hapus non existent
-        if (empty($product->id)) {
+        if (empty($product->id->nonExistentProductId)) {
             $this->fail("Testing gagal karena data tidak ada.");
             return;
         }
