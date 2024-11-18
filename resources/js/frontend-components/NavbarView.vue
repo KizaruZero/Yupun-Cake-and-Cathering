@@ -183,6 +183,7 @@
                                                 {{ user.email }}
                                             </p>
                                         </div>
+
                                         <Link
                                             href="/profile"
                                             class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-500"
@@ -190,13 +191,14 @@
                                         >
                                             Your Profile
                                         </Link>
-                                        <Link
-                                            href="/cart"
+
+                                        <button
+                                            v-if="isAdmin"
+                                            @click="goToDashboard"
                                             class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-500"
-                                            @click="closeUserMenu"
                                         >
-                                            Your Orders
-                                        </Link>
+                                            Dashboard
+                                        </button>
                                         <Link
                                             href="/logout"
                                             method="post"
@@ -365,6 +367,10 @@
 import { ref, computed, onMounted, onUnmounted } from "vue";
 import { Link, usePage } from "@inertiajs/vue3";
 
+const goToDashboard = () => {
+    window.location.replace("/dashboard");
+};
+
 // Navigation items
 const navigationItems = [
     { name: "Home", path: "/" },
@@ -376,6 +382,7 @@ const navigationItems = [
 // User state from Inertia
 const { props } = usePage();
 const user = computed(() => props.auth.user);
+const isAdmin = computed(() => props.auth.user?.role === "admin");
 
 // Mobile menu state
 const isMobileMenuOpen = ref(false);
