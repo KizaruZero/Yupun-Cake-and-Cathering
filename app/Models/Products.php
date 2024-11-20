@@ -54,6 +54,12 @@ class Products extends Model
         }
     }
 
+    // get image name 
+    public function getImageAttribute($value)
+    {
+        return asset('storage/' . $value);
+    }
+
 
 
 }

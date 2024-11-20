@@ -47,6 +47,10 @@ class ProductController extends Controller
             return redirect()->back()->with('error', 'Produk tidak ditemukan!');
         }
 
+        if (!$user) {
+            return redirect()->route('login')->with('error', 'Silahkan login terlebih dahulu!');
+        }
+
 
         // Ambil cart dari session (jika belum ada, buat array kosong)
         $cart = session()->get('cart', []);
