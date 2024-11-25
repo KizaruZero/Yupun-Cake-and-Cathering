@@ -8,6 +8,8 @@ use Filament\Widgets\LineChartWidget;
 use Filament\Widgets\Concerns\InteractsWithPageFilters;
 use Flowframe\Trend\Trend;
 use Flowframe\Trend\TrendValue;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
+
 
 
 
@@ -17,6 +19,22 @@ class PenjualanChart extends LineChartWidget
     use InteractsWithPageFilters;
 
     protected static ?string $heading = 'Penjualan Perbulan';
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            ExportBulkAction::make()
+                ->label('Export Data')
+                ->icon('heroicon-o-document-arrow-down')
+                ->exports([
+                    'Date' => fn (TrendValue $record) => Carbon::parse($record->date)->format('Y-m-d'),
+                    'Sales Amount' => fn (TrendValue $record) => $record->aggregate,
+                ])
+                ->fileNamePrefix('penjualan-report')
+                ->defaultFormat('xlsx')
+                ->collection($this->getChartData()),
+        ];
+    }
 
     protected function getData(): array
     {
