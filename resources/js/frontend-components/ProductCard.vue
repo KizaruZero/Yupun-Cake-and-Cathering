@@ -8,7 +8,7 @@
             >
                 <img
                     loading="lazy"
-                    :src="`/storage/${product.image}`"
+                    :src="`${product.image}`"
                     class="object-contain aspect-[0.96] w-full rounded-full"
                     alt="Kebab dish"
                 />
