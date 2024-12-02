@@ -110,7 +110,7 @@
                                 class="relative w-24 h-24 rounded-xl overflow-hidden group-hover:scale-105 transition-transform duration-300"
                             >
                                 <img
-                                    :src="`/storage/${item.image}`"
+                                    :src="`${item.image}`"
                                     :alt="item.name"
                                     class="w-full h-full object-cover"
                                 />
@@ -481,6 +481,7 @@ const submitOrder = async () => {
             );
 
             fetchCart();
+            location.reload();
         }
     } catch (error) {
         console.error("Error submitting order:", error);

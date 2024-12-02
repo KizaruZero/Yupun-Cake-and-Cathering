@@ -159,7 +159,7 @@
                                             class="w-12 h-12 bg-orange-100 rounded-lg overflow-hidden"
                                         >
                                             <img
-                                                :src="`/storage/${item.product.image}`"
+                                                :src="`${item.product.image}`"
                                                 :alt="item.product.name"
                                                 class="w-full h-full object-cover"
                                             />
