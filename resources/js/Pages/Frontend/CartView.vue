@@ -212,7 +212,7 @@
 
                         <!-- Payment Method -->
                         <div class="space-y-4">
-                            <div>
+                            <!-- <div>
                                 <label
                                     for="payment_method"
                                     class="block text-sm font-medium text-gray-700 mb-2"
@@ -234,8 +234,204 @@
                                         Cash on Delivery
                                     </option>
                                 </select>
-                            </div>
+                            </div> -->
+                            <div>
+                                <label
+                                    for="payment_method"
+                                    class="block text-sm font-medium text-gray-700 mb-2"
+                                >
+                                    Payment Method
+                                </label>
+                                <select
+                                    v-model="payment_method"
+                                    id="payment_method"
+                                    @change="showPaymentModal"
+                                    class="w-full px-4 py-2.5 rounded-xl border border-orange-200 focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-300 bg-white/50 backdrop-blur-sm"
+                                >
+                                    <option value="">
+                                        Select Payment Method
+                                    </option>
+                                    <option value="bank_transfer">
+                                        Bank Transfer
+                                    </option>
+                                    <option value="e_wallet">E-Wallet</option>
+                                    <option value="qris">QRIS</option>
+                                    <option value="cash_on_delivery">
+                                        Cash on Delivery
+                                    </option>
+                                </select>
 
+                                <!-- Payment Modal -->
+                                <Teleport to="body">
+                                    <Transition name="modal">
+                                        <div
+                                            v-if="isModalVisible"
+                                            class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+                                        >
+                                            <div
+                                                class="bg-white rounded-xl p-6 w-11/12 max-w-md max-h-[80vh] overflow-y-auto"
+                                            >
+                                                <div
+                                                    class="flex justify-between items-center mb-4"
+                                                >
+                                                    <h2
+                                                        class="text-xl font-bold"
+                                                    >
+                                                        {{ modalTitle }}
+                                                    </h2>
+                                                    <button
+                                                        @click="closeModal"
+                                                        class="text-gray-600 hover:text-gray-900"
+                                                    >
+                                                        ✕
+                                                    </button>
+                                                </div>
+
+                                                <!-- Bank Transfer Options -->
+                                                <div
+                                                    v-if="
+                                                        payment_method ===
+                                                        'bank_transfer'
+                                                    "
+                                                    class="space-y-4"
+                                                >
+                                                    <div
+                                                        v-for="bank in bankOptions"
+                                                        :key="bank.name"
+                                                        class="border rounded-lg p-4 hover:bg-gray-100 cursor-pointer"
+                                                        @click="
+                                                            selectBankMethod(
+                                                                bank
+                                                            )
+                                                        "
+                                                    >
+                                                        <div
+                                                            class="flex items-center"
+                                                        >
+                                                            <img
+                                                                :src="bank.logo"
+                                                                :alt="bank.name"
+                                                                class="w-12 h-12 mr-4"
+                                                            />
+                                                            <div>
+                                                                <h3
+                                                                    class="font-semibold"
+                                                                >
+                                                                    {{
+                                                                        bank.name
+                                                                    }}
+                                                                </h3>
+                                                                <p
+                                                                    class="text-sm text-gray-600"
+                                                                >
+                                                                    {{
+                                                                        bank.accountNumber
+                                                                    }}
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="mt-2 text-sm"
+                                                        >
+                                                            <p>
+                                                                {{
+                                                                    bank.instructions
+                                                                }}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- E-Wallet Options -->
+                                                <div
+                                                    v-else-if="
+                                                        payment_method ===
+                                                        'e_wallet'
+                                                    "
+                                                    class="space-y-4"
+                                                >
+                                                    <div
+                                                        v-for="wallet in eWalletOptions"
+                                                        :key="wallet.name"
+                                                        class="border rounded-lg p-4 hover:bg-gray-100 cursor-pointer"
+                                                        @click="
+                                                            selectEWalletMethod(
+                                                                wallet
+                                                            )
+                                                        "
+                                                    >
+                                                        <div
+                                                            class="flex items-center"
+                                                        >
+                                                            <img
+                                                                :src="
+                                                                    wallet.logo
+                                                                "
+                                                                :alt="
+                                                                    wallet.name
+                                                                "
+                                                                class="w-12 h-12 mr-4"
+                                                            />
+                                                            <div class="">
+                                                                <h3
+                                                                    class="font-semibold"
+                                                                >
+                                                                    {{
+                                                                        wallet.name
+                                                                    }}
+                                                                </h3>
+                                                                <h3
+                                                                    class="font-semibold mx-2"
+                                                                >
+                                                                    {{
+                                                                        wallet.number
+                                                                    }}
+                                                                </h3>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- QRIS Option -->
+                                                <div
+                                                    v-else-if="
+                                                        payment_method ===
+                                                        'qris'
+                                                    "
+                                                    class="text-center"
+                                                >
+                                                    <img
+                                                        :src="qrisImage"
+                                                        alt="QRIS Payment"
+                                                        class="mx-auto max-w-full h-auto rounded-lg"
+                                                    />
+                                                    <p
+                                                        class="mt-4 text-sm text-gray-600"
+                                                    >
+                                                        Scan this QRIS code to
+                                                        pay
+                                                    </p>
+                                                </div>
+
+                                                <!-- Cash on Delivery -->
+                                                <div
+                                                    v-else-if="
+                                                        payment_method ===
+                                                        'cash_on_delivery'
+                                                    "
+                                                    class="text-center"
+                                                >
+                                                    <p>
+                                                        Pay directly to the
+                                                        delivery person upon
+                                                        receiving your order.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </Transition>
+                                </Teleport>
+                            </div>
                             <!-- Delivery Date -->
                             <div>
                                 <label
@@ -357,7 +553,7 @@ import OrderHistory from "@/frontend-components/OrderHistory.vue";
 
 const cart = ref(null);
 const errors = ref({});
-const payment_method = ref("credit_card");
+const payment_method = ref("bank_transfer");
 const requested_delivery_date = ref(null);
 let payment_proof = ref(null);
 
@@ -578,7 +774,101 @@ const formatCurrency = (value) => {
     }).format(value);
 };
 
+// Modal
+const isModalVisible = ref(false);
+import bcaLogo from "@/assets/bca.jpg";
+import briLogo from "@/assets/bri.jpg";
+import dana from "@/assets/dana.png";
+import ovo from "@/assets/ovo.jpg";
+import shopee from "@/assets/shopee.png";
+import qrisImage from "@/assets/qris.png";
+// Assets
+// Payment Options
+const bankOptions = [
+    {
+        name: "BCA",
+        logo: bcaLogo,
+        accountNumber: "1234567890",
+        instructions:
+            "Transfer to BCA account and include order number as reference",
+    },
+    {
+        name: "BRI",
+        logo: briLogo,
+        accountNumber: "0987654321",
+        instructions:
+            "Transfer to BRI account and include order number as reference",
+    },
+];
+
+const eWalletOptions = [
+    {
+        name: "Yupun Dana",
+        logo: dana,
+        number: "081234567890",
+    },
+    {
+        name: "Yupun Shopee Pay",
+        logo: shopee,
+        number: "081234567890",
+    },
+    {
+        name: "Yupun OVO",
+        logo: ovo,
+        number: "081234567890",
+    },
+];
+
+// Computed
+const modalTitle = computed(() => {
+    const titles = {
+        bank_transfer: "Bank Transfer Options",
+        e_wallet: "E-Wallet Options",
+        qris: "QRIS Payment",
+        cash_on_delivery: "Cash on Delivery",
+    };
+    return titles[payment_method.value] || "Payment Method";
+});
+
+// Methods
+const showPaymentModal = () => {
+    if (payment_method.value) {
+        isModalVisible.value = true;
+    }
+};
+
+const closeModal = () => {
+    isModalVisible.value = false;
+};
+
+// Selection Handlers
+const selectBankMethod = (bank) => {
+    // Handle bank method selection
+    console.log("Selected Bank:", bank);
+    // You can emit an event or call a method to process the selection
+    closeModal();
+};
+
+const selectEWalletMethod = (wallet) => {
+    // Handle e-wallet method selection
+    console.log("Selected E-Wallet:", wallet);
+    // You can emit an event or call a method to process the selection
+    closeModal();
+};
+
 onMounted(() => {
     fetchCart();
 });
 </script>
+<style scoped>
+/* Modal Transition Styles */
+.modal-enter-active,
+.modal-leave-active {
+    transition: opacity 0.3s ease;
+}
+
+.modal-enter-from,
+.modal-leave-to {
+    opacity: 0;
+}
+</style>
