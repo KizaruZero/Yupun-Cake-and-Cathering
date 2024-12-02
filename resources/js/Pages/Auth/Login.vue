@@ -147,14 +147,14 @@ const submit = () => {
                 <div class="w-1/2 relative">
                     <img
                         src="@/assets/makan.jpg"
-                        alt="Karina"
+                        alt=""
                         class="object-cover w-full h-full"
                     />
                     <div class="absolute inset-0 bg-black opacity-25"></div>
                     <div class="absolute bottom-4 left-4 text-white">
-                        <h3 class="text-3xl font-semibold">Karina</h3>
+                        <h3 class="text-3xl font-semibold"></h3>
                         <p class="text-sm mt-2">
-                            Aespa (에스파) is a South Korean girl group...
+                            
                         </p>
                     </div>
                 </div>
