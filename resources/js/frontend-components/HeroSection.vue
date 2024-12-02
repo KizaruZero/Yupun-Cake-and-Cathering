@@ -68,7 +68,7 @@
                             </svg>
                         </button>
                         <Link
-                            href="/experiment"
+                            href="/menu"
                             class="px-8 py-4 border-2 border-orange-500 text-orange-500 rounded-full font-medium transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-orange-50"
                         >
                             View Menu

@@ -8,7 +8,7 @@
             >
                 <img
                     loading="lazy"
-                    :src="`/storage/${product.image}`"
+                    :src="`${product.image}`"
                     class="object-contain aspect-[0.96] w-full rounded-full"
                     alt="Kebab dish"
                 />
@@ -48,8 +48,16 @@
                     v-if="isLoading"
                     class="spinner-border animate-spin mr-2"
                 ></span>
-                {{ isLoading ? "Menambahkan..." : "Add to Cart" }}
-                <!-- success message -->
+
+                <!-- Tampilkan pesan sukses jika ada -->
+                <span v-if="successMessage" class="text-green-200">
+                    {{ successMessage }}
+                </span>
+
+                <!-- Tampilkan teks normal jika tidak loading dan tidak ada pesan sukses -->
+                <span v-else>
+                    {{ isLoading ? "Menambahkan..." : "Add to Cart" }}
+                </span>
             </button>
         </form>
     </article>
@@ -81,10 +89,23 @@ const submitCart = async () => {
         });
 
         successMessage.value = "Produk berhasil ditambahkan ke keranjang!";
+
+        // Hilangkan pesan sukses setelah 3 detik
+        setTimeout(() => {
+            successMessage.value = "";
+        }, 2000);
+
         console.log("Product added to cart Quantity:", quantity.value);
         quantity.value = 1; // Reset quantity after success
     } catch (error) {
         console.error("Error adding product to cart:", error);
+
+        // Opsional: Tambahkan pesan error
+        successMessage.value = "Gagal menambahkan produk, anda belum login!";
+        setTimeout(() => {
+            successMessage.value = "";
+            window.location.href = "/login";
+        }, 1000);
     } finally {
         isLoading.value = false;
     }
