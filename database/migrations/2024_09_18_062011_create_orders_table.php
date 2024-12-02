@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->string('payment_method');
             $table->enum('status', ['new', 'processing', 'shipped', 'completed', 'cancelled'])->default('new');
             $table->decimal('total_price', 12, 2)->nullable();
+            $table->text('custom_order')->nullable();
             $table->date('order_date');
             $table->date('requested_delivery_date'); // Tanggal yang diinginkan oleh pengguna
             $table->string('payment_proof')->require();
