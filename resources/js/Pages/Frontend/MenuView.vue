@@ -29,7 +29,7 @@
                         Fall In
                         <span class="text-red-500">Love</span>
                     </h2>
-                    <ProductCategorySection category="2" />
+                    <ProductCategorySection category="3" />
                 </div>
                 <div class="mt-6">
                     <SnackSection />
@@ -43,7 +43,7 @@
                         Fall In
                         <span class="text-red-500">Love</span>
                     </h2>
-                    <ProductCategorySection category="3" />
+                    <ProductCategorySection category="2" />
                 </div>
             </div>
         </div>
