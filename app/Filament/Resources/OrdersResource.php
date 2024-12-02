@@ -85,13 +85,13 @@ class OrdersResource extends Resource
                     ->colors([
                         'secondary' => static fn($state): bool => $state === 'new',
                         'primary' => static fn($state): bool => $state === 'processing',
-                        'success' => static fn($state): bool => $state === 'shipped' || $state === 'completed',
+                        'success' => static fn($state): bool => $state === 'ready' || $state === 'completed',
                         'danger' => static fn($state): bool => $state === 'cancelled',
                     ])
                     ->icons([
                         'heroicon-o-check' => 'new',
                         'heroicon-o-clock' => 'processing',
-                        'heroicon-o-truck' => 'shipped',
+                        'heroicon-o-truck' => 'ready',
                         'heroicon-o-check-circle' => 'completed',
                         'heroicon-o-x-circle' => 'cancelled',
                     ])
@@ -142,15 +142,15 @@ class OrdersResource extends Resource
                         ->visible(fn(Orders $record) => $record->status === 'new')
                         ->action(fn(Orders $record) => $record->update(['status' => 'cancelled']))
                         ->requiresConfirmation(),
-                    Action::make('ship')
-                        ->label('Ship')
+                    Action::make('ready')
+                        ->label('Ready')
                         ->icon('heroicon-o-truck')
                         ->visible(fn(Orders $record) => $record->status === 'processing')
-                        ->action(fn(Orders $record) => $record->update(['status' => 'shipped', 'delivery_date' => now()])),
+                        ->action(fn(Orders $record) => $record->update(['status' => 'ready', 'delivery_date' => now()])),
                     Action::make('complete')
                         ->label('Complete')
                         ->icon('heroicon-o-check')
-                        ->visible(fn(Orders $record) => $record->status === 'shipped')
+                        ->visible(fn(Orders $record) => $record->status === 'ready')
                         ->action(fn(Orders $record) => $record->update(
                             ['status' => 'completed'],
                         )),
