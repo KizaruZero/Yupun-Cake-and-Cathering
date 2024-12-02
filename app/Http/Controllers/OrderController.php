@@ -21,6 +21,7 @@ class OrderController extends Controller
         $request->validate([
             'payment_method' => 'required|string',
             'requested_delivery_date' => 'required|date|after_or_equal:today',
+            'custom_order' => 'nullable|string',
             'payment_proof' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'cart_items' => 'required|array', // Mengandung array item keranjang
             'cart_items.*.product_id' => 'required|exists:products,id',
@@ -38,6 +39,7 @@ class OrderController extends Controller
         $order = Orders::create([
             'user_id' => $user->id, // Mengambil id user yang sedang login
             'payment_method' => $request->payment_method,
+            'custom_order' => $request->custom_order,
             'status' => 'new', // Misal order pertama kali di-pending
             'total_price' => $total_price,
             'order_date' => now(),

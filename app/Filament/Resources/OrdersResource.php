@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\OrdersResource\Pages;
+use App\Filament\Resources\OrdersResource\Pages\ViewOrder;
 use App\Filament\Resources\OrdersResource\RelationManagers;
 use App\Models\Orders;
 use Filament\Forms;
@@ -32,12 +33,47 @@ class OrdersResource extends Resource
     {
         return $form
             ->schema([
+                Forms\Components\Section::make('Order Information')
+                    ->schema([
+                        Forms\Components\TextInput::make('user_name')
+                            ->label('Customer Name')
+                            ->readOnly()
+                            ->formatStateUsing(fn ($record) => $record->user->name),
+                        Forms\Components\TextInput::make('payment_method')
+                            ->readOnly(),
+                        Forms\Components\TextInput::make('status')
+                            ->readOnly(),
+                        Forms\Components\DatePicker::make('order_date')
+                            ->readOnly(),
+                        Forms\Components\DatePicker::make('requested_delivery_date')
+                            ->readOnly(),
+                        Forms\Components\DatePicker::make('delivery_date')
+                            ->readOnly(),
+                        
+                        Forms\Components\TextInput::make('total_price')
+                            ->readOnly()
+                            ->prefix('Rp'),
+                            
+                        Forms\Components\FileUpload::make('payment_proof')
+                            ->image()
+                            ->imagePreviewHeight('250')
+                            
+                            ->columnSpanFull(),
+                            
+                        Forms\Components\Textarea::make('custom_order')
+                            ->readOnly()
+                            ->columnSpanFull()
+                            ->formatStateUsing(fn ($record) => $record->custom_order),
+                    ])->columns(2),
+                    
+               
             ]);
     }
 
     public static function table(Table $table): Table
     {
         return $table
+            ->recordUrl(fn (Orders $record): string => self::getUrl('view', ['record' => $record]))
             ->columns([
                 Tables\Columns\TextColumn::make('user_id')
                     ->numeric()
@@ -139,6 +175,7 @@ class OrdersResource extends Resource
     {
         return [
             'index' => Pages\ListOrders::route('/'),
+            'view' => Pages\ViewOrder::route('/{record}'),
             'create' => Pages\CreateOrders::route('/create'),
             'edit' => Pages\EditOrders::route('/{record}/edit'),
         ];

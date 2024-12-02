@@ -19,7 +19,8 @@ class Orders extends Model
         'order_date',
         'payment_proof',
         'requested_delivery_date',
-        'delivery_date'
+        'delivery_date',
+        'custom_order',
     ];
 
 

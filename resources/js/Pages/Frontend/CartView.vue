@@ -450,6 +450,23 @@
                                 />
                             </div>
 
+                            <!-- Kustomisasi Pesanan -->
+                            <div>
+                                <label
+                                    for="custom_order"
+                                    class="block text-sm font-medium text-gray-700 mb-2"
+                                >
+                                    Custom Order
+                                </label>
+                                <textarea
+                                    v-model="custom_order"
+                                    id="custom_order"
+                                    rows="3"
+                                    placeholder="Masukkan kustomisasi pesanan yang Anda inginkan (Opsional)"
+                                    class="w-full px-4 py-2.5 rounded-xl border border-orange-200 focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-300 bg-white/50 backdrop-blur-sm"
+                                ></textarea>
+                            </div>
+
                             <!-- Payment Proof -->
                             <div>
                                 <label
@@ -499,7 +516,7 @@
                                             >
                                                 <path
                                                     fill-rule="evenodd"
-                                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414z"
                                                     clip-rule="evenodd"
                                                 />
                                             </svg>
@@ -555,6 +572,7 @@ const cart = ref(null);
 const errors = ref({});
 const payment_method = ref("bank_transfer");
 const requested_delivery_date = ref(null);
+const custom_order = ref(""); // Add this line
 let payment_proof = ref(null);
 
 // Refs
@@ -631,6 +649,7 @@ const submitOrder = async () => {
                 requested_delivery_date.value
             );
             formData.append("payment_method", payment_method.value);
+            formData.append("custom_order", custom_order.value); // Add this line
 
             // Append each cart item individually to maintain array structure
             rawCartItems.forEach((item, index) => {
